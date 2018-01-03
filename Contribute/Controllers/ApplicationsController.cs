@@ -11,6 +11,7 @@ using ContributeComponents.Repositories.Ef;
 
 namespace Contribute.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class ApplicationsController : Controller
     {
         private ContributeDbContext db = new ContributeDbContext();
@@ -36,6 +37,7 @@ namespace Contribute.Controllers
             return View(applications);
         }
 
+        [AllowAnonymous]
         // GET: Applications/Create
         public ActionResult Create()
         {
@@ -45,6 +47,7 @@ namespace Contribute.Controllers
         // POST: Applications/Create
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,FirstName,LastName,FullJobTitle,Email,SocialReputation,Description,File,OriginAddress,Neo,CreateTime")] Applications applications)

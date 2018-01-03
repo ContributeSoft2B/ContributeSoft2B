@@ -1,0 +1,21 @@
+﻿@using System.Data.Entity.Infrastructure.Interception
+@model string
+
+@{
+    ViewBag.Title = "管理员登录";
+}
+
+<h2>@ViewBag.Title</h2>
+@if (!String.IsNullOrEmpty(Model))
+{
+    <div class="alert alert-danger">@Model</div>
+}
+@using (Html.BeginForm())
+{
+
+    <input type="hidden" name="returnUrl" id="returnUrl" value="@Request.QueryString["returnUrl"]" />
+    <input id="name" name="name" placeholder="请输入管理员名" type="text" />
+    <input id="password" placeholder="请输入密码"  name="password" type="password" />
+    <input id="Button1" type="submit" value="登录" />
+}
+

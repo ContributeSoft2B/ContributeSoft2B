@@ -18,6 +18,8 @@ namespace ContributeComponents.Domains
         public string File { get; set; }
         public string OriginAddress  { get; set; }
         public decimal Neo { get; set; }
+        public string Tips { get; set; }
+        public string Address { get; set; }
         public DateTime CreateTime { get; set; }
     }
 }
