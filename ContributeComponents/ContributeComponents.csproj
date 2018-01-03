@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Domains\Applications.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Ef\ContributeDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
