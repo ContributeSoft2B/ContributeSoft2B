@@ -50,14 +50,26 @@ namespace Contribute.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,FullJobTitle,Email,SocialReputation,Description,File,OriginAddress,Neo,CreateTime")] Applications applications)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,FullJobTitle,Email,SocialReputation,Description,NeoOriginAddress,Neo,Btc,BtcOriginAddress")] Applications applications, HttpPostedFileBase[] fileToUpload)
         {
             if (ModelState.IsValid)
             {
-                db.Applications.Add(applications);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (fileToUpload != null)
+                {
+                    foreach (HttpPostedFileBase item in fileToUpload)
+                    {
+                        string fileName = Guid.NewGuid().ToString() + ".jpg";
+                        string path = System.IO.Path.Combine(Server.MapPath("~/Upload"), fileName);
+                        item.SaveAs(path);
+                        applications.File = fileName;
+                    }
+                    applications.CreateTime = DateTime.UtcNow;
+                    db.Applications.Add(applications);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
+
 
             return View(applications);
         }
