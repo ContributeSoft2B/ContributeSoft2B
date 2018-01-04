@@ -64,7 +64,7 @@ namespace Contribute.Controllers
                     applications.CreateTime = DateTime.UtcNow;
                     db.Applications.Add(applications);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return Redirect("/");
                 }
                 ViewBag.Msg = "请上传文件";
             }

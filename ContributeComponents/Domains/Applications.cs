@@ -20,6 +20,7 @@ namespace ContributeComponents.Domains
         [Display(Name = "Full Job Title")]
         public string FullJobTitle { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "必填项")]
+        [RegularExpression(@"^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "请输入正确的Email")]
         [Display(Name = "Email")]
         public string Email { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "必填项")]
