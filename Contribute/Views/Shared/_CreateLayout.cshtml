@@ -1,10 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>STB Chain - Software to BlockChain - Soft2B.com</title>
+    <meta name="description" content="soft2b.com is a blockchain, STB Chain">
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="~/to/css/header.css">
+    <link rel="stylesheet" href="~/to/css/main.css">
+    <link rel="stylesheet" href="~/to/css/home.css">
+    <link rel="stylesheet" href="~/to/css/custom.css">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -28,13 +34,10 @@
             </div>
         </div>
     </div>*@
-    <div class="container body-content">
+    <header class="header-style site-header"></header>
         @RenderBody()
         <hr />
-        @*<footer>
-            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 应用程序</p>
-        </footer>*@
-    </div>
+    <footer class="site-footer modern-footer" id="contact"></footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

@@ -241,3 +241,14 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /Contribute/Upload
+/Contribute/Views/Home/team.html
+/Contribute/Views/Home/STBChain-DMv1.0.pdf
+/Contribute/Views/Home/STBChain-DM.pdf
+/Contribute/Views/Home/STBChain-cn.pdf
+/Contribute/Views/Home/qa.html
+/Contribute/Views/Home/js
+/Contribute/Views/Home/indexod.html
+/Contribute/Views/Home/index.html
+/Contribute/Views/Home/images
+/Contribute/Views/Home/home.html
+/Contribute/Views/Home/css

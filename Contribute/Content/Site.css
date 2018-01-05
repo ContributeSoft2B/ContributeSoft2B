@@ -15,10 +15,24 @@
 .dl-horizontal dt {
     white-space: normal;
 }
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.text-danger{display:none;}
+.title{color:#fff;font-size:26px;padding-top:10px;}
+.isneed::before{content:'*';color:red;margin-right:0.4em;}
+.form-horizontal{width:90%;margin:0 auto;background:#fff;border-radius:0.4rem;padding:10px 20px;position:relative;z-index:1;margin-top:60px;box-shadow:0 0 4px rgba(0,0,0,0.5) ;}
+.countDown-cont {
+    background: #010101;
+    background: rgba(1,1,1,.5);
+    height: 100%;
+    padding: 20px;
+}
+.centerPiece {
+    padding-top: 60px;
+}
+.parallax-image {
+    background: url(../images/wallup-267445.jpg) center center no-repeat fixed;
+    background-size: cover;
+    width: 100%;
+    height: 730px;
+    position: absolute;
+    z-index:0;
 }
