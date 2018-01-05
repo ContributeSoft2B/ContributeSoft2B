@@ -57,7 +57,7 @@ namespace Contribute.Controllers
                 applications.CreateTime = DateTime.UtcNow;
                 db.Applications.Add(applications);
                 db.SaveChanges();
-                return Redirect("/");
+                return RedirectToAction("Success");
             }
             return View(applications);
         }
