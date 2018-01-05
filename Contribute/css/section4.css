@@ -1,0 +1,819 @@
+.section-4-background-img {
+    background: #f2f2f2 url("../images/roadshow-bg.png") no-repeat center 110px;
+    background-size: 100% 80%;
+    min-height: 780px;
+}
+.section-4.container-fluid {
+    max-width: 100%;
+}
+.section-4 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.section-4-title {
+    font-size: calc(36px + 3 * ((100vw - 320px) / 880));
+    font-weight: 700;
+    color: #000000;
+    margin-top: 48px !important;
+    margin-bottom: 25px;
+}
+.section-4-text {
+    text-align: center;
+    font-size: calc(24px + 3 * ((100vw - 320px) / 880));
+    font-weight: 400;
+    line-height: 36px;
+    color: #000;
+    margin: 0 auto;
+    max-width: 710px;
+}
+.section-4-roadshow-text {
+    position: absolute;
+    font-size: 22px;
+    font-weight: 700;
+    color: #000000;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 21px;
+    text-align: center;
+    width: 242px;
+    height: 242px;
+    vertical-align: bottom;
+    padding-top: 260px;
+}
+.section-4-roadshow-text span{
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.section-4-roadshow-img {
+    position: absolute;
+    width: 242px;
+}
+/* Roadshow 1 */
+.section-4-roadshow-text-1 {
+    top: 40px;
+    left: 6%;
+}
+.section-4-roadshow-text span.city-bg{
+    position: absolute;
+    left:0;
+    top:0;
+    width:200px;
+    height:200px;
+    background: url("../images/roadshow-03.png") no-repeat;
+    background-size: cover;
+    border-radius: 100px;
+    border:2px #000 solid;
+}
+.section-4-roadshow-img-1 {
+    top: 50px;
+    left: 130px;
+}
+/* Roadshow 2 */
+.section-4-roadshow-text-2 {
+    top: 150px;
+    left: 25%;
+}
+.section-4-roadshow-text-2 span.city-bg{
+    background: url("../images/xini-tp.png") no-repeat;
+}
+.section-4-roadshow-img-2 {
+    top: 50px;
+    left: 130px;
+}
+/* Roadshow 3 */
+.section-4-roadshow-text-3 {
+    top: 50px;
+    left: 44%;
+}
+.section-4-roadshow-text-3 span.city-bg{
+    background: url("../images/roadshow-06.png") no-repeat;
+    background-size: cover;
+}
+.section-4-roadshow-img-3 {
+    top: 50px;
+    left: 130px;
+}
+/* Roadshow 4 */
+.section-4-roadshow-text-4 {
+    top: 180px;
+    left: 63%;
+}
+.section-4-roadshow-text-4 span.city-bg{
+    background: url("../images/roadshow-01.png") no-repeat;
+    background-size: cover;
+}
+.section-4-roadshow-img-4 {
+    top: 50px;
+    left: 130px;
+}
+/* Roadshow 5 */
+.section-4-roadshow-text-5 {
+    top: 65px;
+    left: 83%;
+}
+.section-4-roadshow-text-5 span.city-bg{
+    background: url("../images/roadshow-08.jpg") no-repeat;
+    background-size: cover;
+}
+.section-4-roadshow-img-5 {
+    top: 50px;
+    left: 130px;
+}
+
+@media screen and (max-width: 1444px) {
+    .section-4-background-img {
+        background: #f2f2f2 url("../images/roadshow-bg.png") no-repeat center 120px;
+        background-size: 100% 80%;
+        min-height: 750px;
+    }
+    .section-4-roadshow-text {
+        width: 200px;
+        height: 200px;
+        padding-top: 220px;
+    }
+    /* Roadshow 1 */
+    .section-4-roadshow-text-1 {
+        top: 60px;
+        left: 5%;
+    }
+    /* Roadshow 2 */
+    .section-4-roadshow-text-2 {
+        top: 170px;
+        left: 24%;
+    }
+    /* Roadshow 3 */
+    .section-4-roadshow-text-3 {
+        top: 70px;
+        left: 43%;
+    }
+    /* Roadshow 4 */
+    .section-4-roadshow-text-4 {
+        top: 200px;
+        left: 62%;
+    }
+    /* Roadshow 5 */
+    .section-4-roadshow-text-5 {
+        top: 75px;
+        left: 82%;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .section-4-roadshow-text {
+        width: 200px;
+        height: 200px;
+        padding-top: 220px;
+        border-radius: 110px;
+    }
+    /* Roadshow 1 */
+    .section-4-roadshow-text-1 {
+        top: 60px;
+        left: 5%;
+    }
+    /* Roadshow 2 */
+    .section-4-roadshow-text-2 {
+        top: 170px;
+        left: 24%;
+    }
+    /* Roadshow 3 */
+    .section-4-roadshow-text-3 {
+        top: 70px;
+        left: 43%;
+    }
+    /* Roadshow 4 */
+    .section-4-roadshow-text-4 {
+        top: 200px;
+        left: 62%;
+    }
+    /* Roadshow 5 */
+    .section-4-roadshow-text-5 {
+        top: 75px;
+        left: 82%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .section-4-text {
+        line-height: 26px;
+    }
+}
+
+@media screen and (max-width: 1099px) {
+    .section-4-background-img {
+        background: #f2f2f2 url("../images/roadshow-bg.png") no-repeat center 110px;
+        background-size: 100% 80%;
+        min-height: 710px;
+    }
+    .section-4-text {
+        line-height: 26px;
+    }
+    .section-4-roadshow-text {
+        width: 180px;
+        height: 180px;
+        padding-top: 220px;
+    }
+    /* Roadshow 1 */
+    .section-4-roadshow-text-1 {
+        top: 80px;
+        left: 4%;
+    }
+    /* Roadshow 2 */
+    .section-4-roadshow-text-2 {
+        top: 190px;
+        left: 23%;
+    }
+    /* Roadshow 3 */
+    .section-4-roadshow-text-3 {
+        top: 90px;
+        left: 42%;
+    }
+    /* Roadshow 4 */
+    .section-4-roadshow-text-4 {
+        top: 220px;
+        left: 61%;
+    }
+    /* Roadshow 5 */
+    .section-4-roadshow-text-5 {
+        top: 95px;
+        left: 81%;
+    }
+}
+
+@media screen and (max-width: 1014px) {
+    .section-4-background-img {
+        background: #f2f2f2 url("../images/roadshow-bg.png") no-repeat center 90px;
+        background-size: 100% 80%;
+        min-height: 690px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .section-4-background-img {
+        background: #f1f1f1 url("../images/roadshow-bg-vertical.png") no-repeat center 315px;
+        background-size: auto;
+        min-height: 2235px;
+    }
+    .section-4-roadshow-text {
+        width: 430px;
+        height: 242px;
+        padding-top: 95px;
+        padding-left: 245px;
+    }
+    /* Roadshow 1 */
+    .section-4-roadshow-text-1 {
+        top: 175px;
+        left: calc(40% - 5px);
+        background-size: auto;
+    }
+    /* Roadshow 2 */
+    .section-4-roadshow-text-2 {
+        top: 590px;
+        left: calc(40% - 160px);
+        background-size: auto;
+    }
+    /* Roadshow 3 */
+    .section-4-roadshow-text-3 {
+        top: 950px;
+        left: calc(40% - 40px);
+        background-size: auto;
+    }
+    /* Roadshow 4 */
+    .section-4-roadshow-text-4 {
+        top: 1300px;
+        left: calc(40% - 200px);
+        background-size: auto;
+    }
+    /* Roadshow 5 */
+    .section-4-roadshow-text-5 {
+        top: 1680px;
+        left: calc(40% - 50px);
+        background-size: auto;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .section-4-text {
+        line-height: 19px;
+    }
+    .section-4-background-img {
+        background-position: center 285px;
+        min-height: 2205px;
+    }
+}
+
+@media screen and (max-width: 689px) {
+    .section-4-background-img {
+        background-position: center 250px;
+        min-height: 2170px;
+    }
+    .section-4-roadshow-text {
+        width: 430px;
+        height: 242px;
+        padding-top: 95px;
+        padding-left: 180px;
+    }
+    /* Roadshow 1 */
+    .section-4-roadshow-text-1 {
+        top: 175px;
+        left: calc(40% - 10px);
+        background-size: 50%;
+    }
+    /* Roadshow 2 */
+    .section-4-roadshow-text-2 {
+        top: 590px;
+        left: calc(40% - 165px);
+        background-size: 50%;
+    }
+    /* Roadshow 3 */
+    .section-4-roadshow-text-3 {
+        top: 950px;
+        left: calc(40% - 45px);
+        background-size: 50%;
+    }
+    /* Roadshow 4 */
+    .section-4-roadshow-text-4 {
+        top: 1300px;
+        left: calc(40% - 205px);
+        background-size: 50%;
+    }
+    /* Roadshow 5 */
+    .section-4-roadshow-text-5 {
+        top: 1680px;
+        left: calc(40% - 55px);
+        background-size: 50%;
+    }
+}
+
+@media screen and (max-width: 614px) {
+    .section-4-background-img {
+        min-height: 2170px;
+    }
+    .section-4-roadshow-text {
+        width: 430px;
+        height: 242px;
+        padding-top: 95px;
+        padding-left: 180px;
+    }
+    /* Roadshow 1 */
+    .section-4-roadshow-text-1 {
+        top: 175px;
+        left: calc(40% - 45px);
+        background-size: 50%;
+    }
+    /* Roadshow 2 */
+    .section-4-roadshow-text-2 {
+        top: 590px;
+        left: calc(40% - 195px);
+        background-size: 50%;
+    }
+    /* Roadshow 3 */
+    .section-4-roadshow-text-3 {
+        top: 950px;
+        left: calc(40% - 55px);
+        background-size: 50%;
+    }
+    /* Roadshow 4 */
+    .section-4-roadshow-text-4 {
+        top: 1300px;
+        left: calc(40% - 230px);
+        background-size: 50%;
+    }
+    /* Roadshow 5 */
+    .section-4-roadshow-text-5 {
+        top: 1680px;
+        left: calc(40% - 70px);
+        background-size: 50%;
+    }
+}
+
+@media screen and (max-width: 589px) {
+    .section-4-background-img {
+        min-height: 2170px;
+    }
+    .section-4-roadshow-text {
+        width: 430px;
+        height: 242px;
+        padding-top: 95px;
+        padding-left: 135px;
+    }
+    /* Roadshow 1 */
+    .section-4-roadshow-text-1 {
+        top: 175px;
+        left: calc(40% - 45px);
+        background-size: 45%;
+    }
+    /* Roadshow 2 */
+    .section-4-roadshow-text-2 {
+        top: 590px;
+        left: calc(40% - 195px);
+        background-size: 45%;
+    }
+    /* Roadshow 3 */
+    .section-4-roadshow-text-3 {
+        top: 950px;
+        left: calc(40% - 55px);
+        background-size: 45%;
+    }
+    /* Roadshow 4 */
+    .section-4-roadshow-text-4 {
+        top: 1300px;
+        left: calc(40% - 200px);
+        background-size: 45%;
+    }
+    /* Roadshow 5 */
+    .section-4-roadshow-text-5 {
+        top: 1680px;
+        left: calc(40% - 70px);
+        background-size: 45%;
+    }
+}
+
+@media screen and (max-width: 514px) {
+    .section-4-background-img {
+        background-position: center 240px;
+        min-height: 1445px;
+        background-size: 515px;
+    }
+    .section-4-roadshow-text {
+        font-size: 17px;
+        width: 270px;
+        height: 242px;
+        padding-top: 45px;
+        padding-left: 115px;
+    }
+    .section-4-roadshow-text span{
+        font-size: 14px;
+    }
+    /* Roadshow 1 */
+    .section-4-roadshow-text-1 {
+        top: 170px;
+        left: calc(40% - 25px);
+        background-size: 45%;
+    }
+    /* Roadshow 2 */
+    .section-4-roadshow-text-2 {
+        top: 390px;
+        left: calc(40% - 100px);
+        background-size: 45%;
+    }
+    /* Roadshow 3 */
+    .section-4-roadshow-text-3 {
+        top: 610px;
+        left: calc(40% - 25px);
+        background-size: 45%;
+    }
+    /* Roadshow 4 */
+    .section-4-roadshow-text-4 {
+        top: 845px;
+        left: calc(40% - 130px);
+        background-size: 45%;
+    }
+    /* Roadshow 5 */
+    .section-4-roadshow-text-5 {
+        top: 1075px;
+        left: calc(40% - 30px);
+        background-size: 45%;
+    }
+}
+
+/*@media screen and (max-width: 490px) {*/
+    /*.section-4-background-img {*/
+        /*//background-position: -155px 220px;*/
+        /*min-height: 2140px;*/
+    /*}*/
+    /*.section-4-roadshow-text {*/
+        /*font-size: 17px;*/
+        /*width: 270px;*/
+        /*height: 242px;*/
+        /*padding-top: 45px;*/
+        /*padding-left: 115px;*/
+    /*}*/
+    /*.section-4-roadshow-text span{*/
+        /*font-size: 14px;*/
+    /*}*/
+    /*!* Roadshow 1 *!*/
+    /*.section-4-roadshow-text-1 {*/
+        /*top: 180px;*/
+        /*left: 180px;*/
+        /*background-size: 45%;*/
+    /*}*/
+    /*!* Roadshow 2 *!*/
+    /*.section-4-roadshow-text-2 {*/
+        /*top: 590px;*/
+        /*left: 45px;*/
+        /*background-size: 45%;*/
+    /*}*/
+    /*!* Roadshow 3 *!*/
+    /*.section-4-roadshow-text-3 {*/
+        /*top: 950px;*/
+        /*left: 190px;*/
+        /*background-size: 45%;*/
+    /*}*/
+    /*!* Roadshow 4 *!*/
+    /*.section-4-roadshow-text-4 {*/
+        /*top: 1300px;*/
+        /*left: 5px;*/
+        /*background-size: 45%;*/
+    /*}*/
+    /*!* Roadshow 5 *!*/
+    /*.section-4-roadshow-text-5 {*/
+        /*top: 1685px;*/
+        /*left: 180px;*/
+        /*background-size: 45%;*/
+    /*}*/
+/*}*/
+
+/*@media screen and (max-width: 450px) {*/
+    /*.section-4-background-img {*/
+        /*//background-position: -165px 240px;*/
+        /*min-height: 2160px;*/
+    /*}*/
+    /*.section-4-roadshow-text {*/
+        /*font-size: 14px;*/
+        /*width: 270px;*/
+        /*height: 242px;*/
+        /*padding-top: 45px;*/
+        /*padding-left: 115px;*/
+    /*}*/
+    /*.section-4-roadshow-text span{*/
+        /*font-size: 14px;*/
+    /*}*/
+    /*!* Roadshow 1 *!*/
+    /*.section-4-roadshow-text-1 {*/
+        /*top: 180px;*/
+        /*left: 180px;*/
+        /*background-size: 45%;*/
+        /*padding-left: 0;*/
+        /*padding-top: 120px;*/
+    /*}*/
+    /*!* Roadshow 2 *!*/
+    /*.section-4-roadshow-text-2 {*/
+        /*top: 590px;*/
+        /*left: 45px;*/
+        /*background-size: 45%;*/
+    /*}*/
+    /*!* Roadshow 3 *!*/
+    /*.section-4-roadshow-text-3 {*/
+        /*top: 950px;*/
+        /*left: 190px;*/
+        /*background-size: 45%;*/
+        /*padding-left: 0;*/
+        /*padding-top: 120px;*/
+    /*}*/
+    /*!* Roadshow 4 *!*/
+    /*.section-4-roadshow-text-4 {*/
+        /*top: 1300px;*/
+        /*left: 5px;*/
+        /*background-size: 45%;*/
+    /*}*/
+    /*!* Roadshow 5 *!*/
+    /*.section-4-roadshow-text-5 {*/
+        /*top: 1685px;*/
+        /*left: 180px;*/
+        /*background-size: 45%;*/
+        /*padding-left: 0;*/
+        /*padding-top: 120px;*/
+    /*}*/
+/*}*/
+
+@media screen and (max-width: 379px) {
+    .section-4-background-img {
+        //background-position: -135px 205px;
+        min-height: 1245px;
+        background-size: 430px;
+    }
+    .section-4-roadshow-text {
+        font-size: 14px;
+        width: 270px;
+        height: 242px;
+        padding-top: 80px;
+        padding-left: 70px;
+    }
+    .section-4-roadshow-text span{
+        font-size: 14px;
+    }
+    /* Roadshow 1 */
+    .section-4-roadshow-text-1 {
+        top: 135px;
+        left: 115px;
+        background-size: 45%;
+        //padding-left: 0;
+        //padding-top: 100px;
+        //background-position: right top;
+        //padding-right: 70px;
+    }
+    /* Roadshow 2 */
+    .section-4-roadshow-text-2 {
+        top: 310px;
+        left: 50px;
+        background-size: 45%;
+    }
+    /* Roadshow 3 */
+    .section-4-roadshow-text-3 {
+        top: 515px;
+        left: 110px;
+        background-size: 45%;
+        //padding-left: 0;
+        //padding-top: 85px;
+        //background-position: right top;
+        //padding-right: 65px;
+    }
+    /* Roadshow 4 */
+    .section-4-roadshow-text-4 {
+        top: 710px;
+        left: 20px;
+        background-size: 45%;
+    }
+    /* Roadshow 5 */
+    .section-4-roadshow-text-5 {
+        top: 890px;
+        left: 110px;
+        background-size: 45%;
+        //padding-left: 0;
+        //padding-top: 85px;
+        //background-position: right top;
+        //padding-right: 95px;
+    }
+}
+
+@media screen and (max-width: 344px) {
+    .section-4-background-img {
+    //background-position: -135px 205px;
+        min-height: 1245px;
+        background-size: 430px;
+    }
+    .section-4-roadshow-text {
+        font-size: 13px;
+        width: 270px;
+        height: 242px;
+        padding-top: 80px;
+        padding-left: 70px;
+    }
+    .section-4-roadshow-text span{
+        font-size: 13px;
+    }
+    /* Roadshow 1 */
+    .section-4-roadshow-text-1 {
+        top: 135px;
+        left: 100px;
+        background-size: 45%;
+    //padding-left: 0;
+    //padding-top: 100px;
+    //background-position: right top;
+    //padding-right: 70px;
+    }
+    /* Roadshow 2 */
+    .section-4-roadshow-text-2 {
+        top: 310px;
+        left: 35px;
+        background-size: 45%;
+    }
+    /* Roadshow 3 */
+    .section-4-roadshow-text-3 {
+        top: 515px;
+        left: 95px;
+        background-size: 45%;
+    //padding-left: 0;
+    //padding-top: 85px;
+    //background-position: right top;
+    //padding-right: 65px;
+    }
+    /* Roadshow 4 */
+    .section-4-roadshow-text-4 {
+        top: 710px;
+        left: 5px;
+        background-size: 45%;
+    }
+    /* Roadshow 5 */
+    .section-4-roadshow-text-5 {
+        top: 890px;
+        left: 95px;
+        background-size: 45%;
+    //padding-left: 0;
+    //padding-top: 85px;
+    //background-position: right top;
+    //padding-right: 95px;
+    }
+}
+
+/*@media screen and (max-width: 339px) {*/
+    /*.section-4-background-img {*/
+        /*//background-position: -140px 160px;*/
+        /*min-height: 2080px;*/
+    /*}*/
+    /*.section-4-roadshow-text {*/
+        /*font-size: 14px;*/
+        /*width: 245px;*/
+        /*height: 242px;*/
+        /*padding-top: 70px;*/
+        /*padding-left: 85px;*/
+    /*}*/
+    /*.section-4-roadshow-text span{*/
+        /*font-size: 14px;*/
+    /*}*/
+    /*!* Roadshow 1 *!*/
+    /*.section-4-roadshow-text-1 {*/
+        /*top: 120px;*/
+        /*left: 65px;*/
+        /*background-size: 45%;*/
+        /*//padding-left: 0;*/
+        /*//padding-top: 100px;*/
+        /*//background-position: right top;*/
+        /*//padding-right: 70px;*/
+    /*}*/
+    /*!* Roadshow 2 *!*/
+    /*.section-4-roadshow-text-2 {*/
+        /*top: 510px;*/
+        /*left: 55px;*/
+        /*background-size: 45%;*/
+    /*}*/
+    /*!* Roadshow 3 *!*/
+    /*.section-4-roadshow-text-3 {*/
+        /*top: 850px;*/
+        /*left: 65px;*/
+        /*background-size: 45%;*/
+        /*//padding-left: 0;*/
+        /*//padding-top: 85px;*/
+        /*//background-position: right top;*/
+        /*//padding-right: 65px;*/
+    /*}*/
+    /*!* Roadshow 4 *!*/
+    /*.section-4-roadshow-text-4 {*/
+        /*top: 1240px;*/
+        /*left: 5px;*/
+        /*background-size: 45%;*/
+    /*}*/
+    /*!* Roadshow 5 *!*/
+    /*.section-4-roadshow-text-5 {*/
+        /*top: 1595px;*/
+        /*left: 65px;*/
+        /*background-size: 45%;*/
+        /*//padding-left: 0;*/
+        /*//padding-top: 85px;*/
+        /*//background-position: right top;*/
+        /*//padding-right: 95px;*/
+    /*}*/
+/*}*/
+
+@media screen and (max-width: 329px) {
+    .section-4-background-img {
+    //background-position: -135px 205px;
+        min-height: 1245px;
+        background-size: 430px;
+    }
+    .section-4-roadshow-text {
+        font-size: 13px;
+        width: 270px;
+        height: 242px;
+        padding-top: 80px;
+        padding-left: 70px;
+    }
+    .section-4-roadshow-text span{
+        font-size: 13px;
+    }
+    /* Roadshow 1 */
+    .section-4-roadshow-text-1 {
+        top: 135px;
+        left: 90px;
+        background-size: 45%;
+    //padding-left: 0;
+    //padding-top: 100px;
+    //background-position: right top;
+    //padding-right: 70px;
+    }
+    /* Roadshow 2 */
+    .section-4-roadshow-text-2 {
+        top: 310px;
+        left: 25px;
+        background-size: 45%;
+    }
+    /* Roadshow 3 */
+    .section-4-roadshow-text-3 {
+        top: 515px;
+        left: 85px;
+        background-size: 45%;
+    //padding-left: 0;
+    //padding-top: 85px;
+    //background-position: right top;
+    //padding-right: 65px;
+    }
+    /* Roadshow 4 */
+    .section-4-roadshow-text-4 {
+        top: 710px;
+        left: 0px;
+        background-size: 45%;
+    }
+    /* Roadshow 5 */
+    .section-4-roadshow-text-5 {
+        top: 890px;
+        left: 85px;
+        background-size: 45%;
+    //padding-left: 0;
+    //padding-top: 85px;
+    //background-position: right top;
+    //padding-right: 95px;
+    }
+}

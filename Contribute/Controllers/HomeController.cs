@@ -12,7 +12,7 @@ namespace Contribute.Controllers
     {
         public ActionResult Index()
         {
-            return Redirect("/to/index.html");
+            return Redirect("/index.html");
         }
 
         public ActionResult About()
