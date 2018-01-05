@@ -22,10 +22,12 @@
 .suc-tip{position:relative;z-index:11;color:green;width:52%;min-height:15vh;background:#fff;border-radius:.4rem;overflow:hidden;margin:30px auto 0;text-align:center;font-size:16px;padding:6vh 0;}
 
 .countDown-cont {
+    font-size:14px;
     background: #010101;
     background: rgba(1,1,1,.5);
     height: 100%;
     padding: 20px;
+    color:#fff;
 }
 .centerPiece {
     padding-top: 60px;
