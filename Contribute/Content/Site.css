@@ -15,10 +15,12 @@
 .dl-horizontal dt {
     white-space: normal;
 }
-.text-danger{display:none;}
+.text-danger{display:-none;}
 .title{color:#fff;font-size:26px;padding-top:10px;}
 .isneed::before{content:'*';color:red;margin-right:0.4em;}
 .form-horizontal{width:90%;margin:0 auto;background:#fff;border-radius:0.4rem;padding:10px 20px;position:relative;z-index:1;margin-top:60px;box-shadow:0 0 4px rgba(0,0,0,0.5) ;}
+.suc-tip{position:relative;z-index:11;color:green;width:52%;min-height:15vh;background:#fff;border-radius:.4rem;overflow:hidden;margin:30px auto 0;text-align:center;font-size:16px;padding:6vh 0;}
+
 .countDown-cont {
     background: #010101;
     background: rgba(1,1,1,.5);
