@@ -50,7 +50,7 @@ namespace Contribute.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,FullJobTitle,Email,Phone,Telegram")] Applications applications, HttpPostedFileBase fileToUpload)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,FullJobTitle,Email,Phone,TokenAddress")] Applications applications, HttpPostedFileBase fileToUpload)
         {
             if (ModelState.IsValid)
             {

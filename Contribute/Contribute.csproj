@@ -394,7 +394,6 @@
     <Content Include="images\zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2" />
     <None Include="Properties\PublishProfiles\soft2b - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\soft2b - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\soft2b.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -584,7 +583,9 @@
     <Content Include="to\js\vector.js" />
     <Content Include="to\qa.html" />
     <Content Include="to\team.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
