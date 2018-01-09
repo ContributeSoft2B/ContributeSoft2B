@@ -34,8 +34,10 @@ namespace ContributeComponents.Domains
 
         public string Phone { get; set; }
         [Display(Name = "Telegram")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "required")]
         public string  Telegram { get; set; }
+        [Display(Name = "Token Address")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "required")]
+        public string TokenAddress { get; set; }
         public DateTime CreateTime { get; set; }
     }
 }
