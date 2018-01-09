@@ -13,17 +13,17 @@ $(function($) {
     var header = '\
             <div class="header-wrap">\
                 <div class="site-header__elements">\
-                    <a href="" class="header-style site-logo">\
+                    <a href="/" class="header-style site-logo">\
                         <img src="../images/logo.png" alt="Logo" width="300">\
                     </a>\
                     <nav class="header-style main-nav">\
                         <ul class="primary-menu">\
-                            <li><a href="">Home</a></li>\
-                            <li><a href="STBChain-cn.pdf" target="_blank">WhitePaper</a></li>\
-                            <li><a href="#team_member">Team</a></li>\
-                            <li><a href="#partners">Partners</a></li>\
-                            <li><a href="#contact">Contact</a></li>\
-                            <li><a href="qa.html" target="_blank">Q&A</a></li>\
+                            <li><a href="/">Home</a></li>\
+                            <li><a href="/STBChain-cn.pdf" target="_blank">WhitePaper</a></li>\
+                            <li><a href="/#team_member">Team</a></li>\
+                            <li><a href="/#partners">Partners</a></li>\
+                            <li><a href="/#contact">Contact</a></li>\
+                            <li><a href="/qa.html" target="_blank">Q&A</a></li>\
                             <li>\
                             <ul class="languagepicker roundborders large" dir="ltr">\
                                 <li><span class="flag-icon flag-icon-'+(lang=='CN'?'cn':'gb')+'"></span>&nbsp; '+lang+'</li>\
