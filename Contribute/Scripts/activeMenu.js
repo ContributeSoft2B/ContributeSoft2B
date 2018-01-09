@@ -14,16 +14,16 @@ $(function($) {
             <div class="header-wrap">\
                 <div class="site-header__elements">\
                     <a href="" class="header-style site-logo">\
-                        <img src="../images/logo.png" alt="Logo" width="300">\
+                        <img src="images/logo.png" alt="Logo" width="300">\
                     </a>\
                     <nav class="header-style main-nav">\
                         <ul class="primary-menu">\
-                            <li><a href="">Home</a></li>\
-                            <li><a href="STBChain-cn.pdf" target="_blank">WhitePaper</a></li>\
-                            <li><a href="#team_member">Team</a></li>\
-                            <li><a href="#partners">Partners</a></li>\
-                            <li><a href="#contact">Contact</a></li>\
-                            <li><a href="qa.html" target="_blank">Q&A</a></li>\
+                            <li><a href="/">Home</a></li>\
+                            <li><a href="./STBChain-cn.pdf" target="_blank">WhitePaper</a></li>\
+                            <li><a href="./index.html#team_member">Team</a></li>\
+                            <li><a href="./index.html#partners">Partners</a></li>\
+                            <li><a href="./index.html#contact">Contact</a></li>\
+                            <li><a href="./qa.html" target="_blank">Q&A</a></li>\
                             <li>\
                             <ul class="languagepicker roundborders large" dir="ltr">\
                                 <li><span class="flag-icon flag-icon-'+(lang=='CN'?'cn':'gb')+'"></span>&nbsp; '+lang+'</li>\
@@ -56,7 +56,7 @@ $(function($) {
 	                <div class="footer-follow-us-wrap">\
 	                    <p class="footer-widget-title">CONTACT US</p>\
 	                    <ul class="footer-follow-us-icon-list">\
-	                        <li><a href="mailto:stbchain@gmail.com?subject=stb" target="_blank" title="stbchain@gmail.com"><i class="fa fa-email" aria-hidden="true"><img src="../../to/images/icon/email.png"></i></a></li>\
+	                        <li><a href="mailto:stbchain@gmail.com?subject=stb" target="_blank" title="stbchain@gmail.com"><i class="fa fa-email" aria-hidden="true"><img src="images/icon/email.png"></i></a></li>\
 	                        <li><a href="https://t.me/soft2b" target="_blank" title="Telegram STB"><i class="fa fa-paper-plane" aria-hidden="true"></i></a></li>\
 	                        <!-- <li><a href="https://facebook.com/soft2b.com" target="_blank" title="Facebook soft2b.com"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> -->\
 	                        <li><a href="https://github.com/stbchain" target="_blank" title="Github STB"><i class="fa fa-github" aria-hidden="true"></i></a></li>\
@@ -71,7 +71,7 @@ $(function($) {
 	            </div>\
 	        </div>\
 	        <div class="row">\
-	            <p class="footer-copyright text--centered">©2017-2018 Copyright By STBChain Foundation.</p>\
+	            <p class="footer-copyright text--centered">©2017 Copyright By STBChain Foundation.</p>\
 	        </div>\
 	    </div>'
     ;

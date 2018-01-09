@@ -1,4 +1,5 @@
-﻿@charset "UTF-8";@import url("../images/css.css");#livechat-compact-container{bottom:120px !important;}
+﻿@charset "UTF-8";
+#livechat-compact-container{bottom:120px !important;}
 div#livechat-eye-catcher{display:none !important;}
 .contact__form .cf_name-and-email:after,.cta__form-and-btn:after,.grid:after,.group:after,.roadmap__el:after,.row:after,.section--dark:after,.section--light-dark:after,.site-header:after{content:"";display:table;clear:both}
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
