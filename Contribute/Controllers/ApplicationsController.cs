@@ -17,9 +17,9 @@ namespace Contribute.Controllers
         private ContributeDbContext db = new ContributeDbContext();
 
         // GET: Applications
-        public ActionResult Index()
+        public ActionResult List()
         {
-            return View(db.Applications.ToList());
+            return View("Index",db.Applications.ToList());
         }
 
         // GET: Applications/Details/5
