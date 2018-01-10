@@ -11,7 +11,7 @@ jQuery(document).ready(function (e) {
     var d = Date.parse(swissTime);
     var dnow = Date.now();
     if (dnow >= d) {
-        swissTime = moment.tz("2018-01-10 12:00:00", "Asia/Shanghai").toDate();
+        swissTime = moment.tz("2018-01-18 23:59:00", "Asia/Shanghai").toDate();
     }
     //Countdown for Token Distribution section
     var swissTime_tokenDistribution = moment.tz("2017-12-07 09:00:00", "Asia/Shanghai").toDate();
