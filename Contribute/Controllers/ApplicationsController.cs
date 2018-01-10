@@ -93,7 +93,7 @@ namespace Contribute.Controllers
             {
                 db.Entry(applications).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             return View(applications);
         }
@@ -121,7 +121,7 @@ namespace Contribute.Controllers
             Applications applications = db.Applications.Find(id);
             db.Applications.Remove(applications);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
         protected override void Dispose(bool disposing)
