@@ -17,9 +17,9 @@ namespace Contribute.Controllers
         private ContributeDbContext db = new ContributeDbContext();
 
         // GET: Applications
-        public ActionResult Index()
+        public ActionResult List()
         {
-            return View(db.Applications.ToList());
+            return View("Index",db.Applications.ToList());
         }
 
         // GET: Applications/Details/5
@@ -50,14 +50,14 @@ namespace Contribute.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,FullJobTitle,Email,Phone,Telegram")] Applications applications, HttpPostedFileBase fileToUpload)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,FullJobTitle,Email,Phone,TokenAddress")] Applications applications, HttpPostedFileBase fileToUpload)
         {
             if (ModelState.IsValid)
             {
                 applications.CreateTime = DateTime.UtcNow;
                 db.Applications.Add(applications);
                 db.SaveChanges();
-                return Redirect("/");
+                return RedirectToAction("Success");
             }
             return View(applications);
         }
@@ -93,7 +93,7 @@ namespace Contribute.Controllers
             {
                 db.Entry(applications).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             return View(applications);
         }
@@ -121,7 +121,7 @@ namespace Contribute.Controllers
             Applications applications = db.Applications.Find(id);
             db.Applications.Remove(applications);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
         protected override void Dispose(bool disposing)
