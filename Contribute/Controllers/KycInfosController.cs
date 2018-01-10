@@ -47,14 +47,27 @@ namespace Contribute.Controllers
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,FullJobTitle,Email,SocialReputation,Description,File,BtcOriginAddress,Btc,NeoOriginAddress,Neo")] KycInfos kycInfos)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,FullJobTitle,Email,SocialReputation,Description,BtcOriginAddress,Btc,NeoOriginAddress,Neo")] KycInfos kycInfos, HttpPostedFileBase file)
         {
-            if (ModelState.IsValid)
+            string fileIsNullMsg = "";
+            if (file == null)
             {
-                kycInfos.CreateTime = DateTime.UtcNow;
-                db.KycInfos.Add(kycInfos);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ViewBag.FileIsNullMsg = "请上传文件";
+            }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    string fileName = Guid.NewGuid().ToString() + ".jpg";
+                    string path = System.IO.Path.Combine(Server.MapPath("~/Upload"), fileName);
+                    file.SaveAs(path);
+                    kycInfos.File = fileName;
+                    kycInfos.CreateTime = DateTime.UtcNow;
+                    db.KycInfos.Add(kycInfos);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
             }
 
             return View(kycInfos);
