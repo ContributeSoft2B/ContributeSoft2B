@@ -11,14 +11,15 @@ using ContributeComponents.Repositories.Ef;
 
 namespace Contribute.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class KycInfosController : Controller
     {
         private ContributeDbContext db = new ContributeDbContext();
 
         // GET: KycInfos
-        public ActionResult Index()
+        public ActionResult List()
         {
-            return View(db.KycInfos.ToList());
+            return View("Index",db.KycInfos.ToList());
         }
 
         // GET: KycInfos/Details/5
@@ -35,7 +36,7 @@ namespace Contribute.Controllers
             }
             return View(kycInfos);
         }
-
+        [AllowAnonymous]
         // GET: KycInfos/Create
         public ActionResult Create()
         {
@@ -46,8 +47,9 @@ namespace Contribute.Controllers
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,FullJobTitle,Email,SocialReputation,Description,BtcOriginAddress,Btc,NeoOriginAddress,Neo")] KycInfos kycInfos, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,FullJobTitle,Email,SocialReputation,Description,BtcOriginAddress,Btc")] KycInfos kycInfos, HttpPostedFileBase file)
         {
             string fileIsNullMsg = "";
             if (file == null)
@@ -65,7 +67,7 @@ namespace Contribute.Controllers
                     kycInfos.CreateTime = DateTime.UtcNow;
                     db.KycInfos.Add(kycInfos);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Success", "Applications");
                 }
 
             }
