@@ -40,3 +40,4 @@
     position: absolute;
     z-index:0;
 }
+.text-danger.attention{background-color:#fff7e8;margin-top:5px;display:block;}

@@ -76,7 +76,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.File, htmlAttributes: new { @class = " isneed col-md-12" })
                 <div class=" col-md-12">
-                    <input type="file" name="file" id="file" multiple="multiple" accept="image/png,image/jpg" />@ViewBag.FileIsNullMsg
+                    <input type="file" name="file" id="file" multiple="multiple" accept="image/png,image/jpg" /><span class="text-danger attention">@ViewBag.FileIsNullMsg</span>
                 </div>
             </div>
 
@@ -112,8 +112,6 @@
                 </div>
             </div>
 
-
-
             <div class="form-group">
                 <div class="col-md-12 text-right">
                     <input type="submit" value="Create" class="btn btn-default" />
@@ -123,3 +121,8 @@
     }
 
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/activeMenu.js"></script>
+}
