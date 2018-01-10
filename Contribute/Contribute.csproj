@@ -159,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ApplicationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KycInfosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -428,6 +429,11 @@
     <Content Include="Views\Home\STBChain-cn.pdf" />
     <Content Include="Views\Home\STBChain-DM.pdf" />
     <Content Include="Views\Home\STBChain-DMv1.0.pdf" />
+    <Content Include="Views\KycInfos\Create.cshtml" />
+    <Content Include="Views\KycInfos\Delete.cshtml" />
+    <Content Include="Views\KycInfos\Details.cshtml" />
+    <Content Include="Views\KycInfos\Edit.cshtml" />
+    <Content Include="Views\KycInfos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

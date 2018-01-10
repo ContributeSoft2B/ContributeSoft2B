@@ -11,5 +11,6 @@ namespace ContributeComponents.Repositories.Ef
   public   class ContributeDbContext:DbContext
     {
         public DbSet<Applications> Applications { get; set; }
+        public DbSet<KycInfos> KycInfos { get; set; }
     }
 }
