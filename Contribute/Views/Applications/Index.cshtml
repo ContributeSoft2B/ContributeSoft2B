@@ -20,19 +20,10 @@
             @Html.DisplayNameFor(model => model.Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SocialReputation)
+            @Html.DisplayNameFor(model => model.Phone)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.File)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BtcOriginAddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Neo)
+            @Html.DisplayNameFor(model => model.Telegram)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CreateTime)
@@ -56,21 +47,12 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SocialReputation)
+                @Html.DisplayFor(modelItem => item.Phone)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => item.Telegram)
             </td>
-            <td>
-
-                <img src="~/Upload/@item.File" style="width: 100px;height: 100px"  />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BtcOriginAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Neo)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.CreateTime)
             </td>

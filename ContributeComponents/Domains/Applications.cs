@@ -11,7 +11,7 @@ namespace ContributeComponents.Domains
     public class Applications
     {
         public int Id { get; set; }
-        [StringLength(255,ErrorMessage = "内容不得超过255个字符")]
+        [StringLength(255,ErrorMessage = "The content must not exceed 255 characters")]
         [Required(AllowEmptyStrings = false,ErrorMessage = "必填项")]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
@@ -29,31 +29,13 @@ namespace ContributeComponents.Domains
         [Display(Name = "Email")]
         public string Email { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "必填项")]
-        [Display(Name = "Social Reputation")]
-        [StringLength(255, ErrorMessage = "内容不得超过255个字符")]
-        public string SocialReputation { get; set; }
+        [RegularExpression(@"^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$", ErrorMessage = "请输入正确的手机号码")]
+        [Display(Name = "Phone")]
+
+        public string Phone { get; set; }
+        [Display(Name = "Telegram")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "必填项")]
-        [Display(Name = "Describe yourself & how you can help as a community member")]
-        [StringLength(255, ErrorMessage = "内容不得超过255个字符")]
-        public string Description { get; set; }
-        [Display(Name = "Upload ID file")]
-        public string File { get; set; }
-        [StringLength(255, ErrorMessage = "内容不得超过255个字符")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "必填项")]
-        [Display(Name = "Origin Address - The BTC address you are contributing from")]
-        public string BtcOriginAddress { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "必填项")]
-        [Display(Name = "How much do you want to contribute in BTC")]
-        [RegularExpression(@"^[0-9]*$", ErrorMessage = "请输入数字")]
-        public int Btc { get; set; }
-        [StringLength(255, ErrorMessage = "内容不得超过255个字符")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "必填项")]
-        [Display(Name = "Origin Address - The NEO address you are contributing from")]
-        public string NeoOriginAddress { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "必填项")]
-        [Display(Name = "How much do you want to contribute in NEO")]
-        [RegularExpression(@"^[0-9]*$", ErrorMessage = "请输入数字")]
-        public int Neo { get; set; }
+        public string  Telegram { get; set; }
         public DateTime CreateTime { get; set; }
     }
 }

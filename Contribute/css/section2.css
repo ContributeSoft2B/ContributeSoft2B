@@ -1,0 +1,519 @@
+.section-2.container-fluid {
+    max-width: 1850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.section-2 {
+    padding-top: 90px;
+    padding-bottom: 65px;
+}
+
+.section-2-title {
+    //font-size: 36px;
+    font-size: calc(36px + 3 * ((100vw - 320px) / 880));
+    font-weight: 700;
+    color: #000;
+    margin-top: 0;
+    margin-bottom: 49px;
+}
+.section-2-text-title {
+    text-align: center;
+    max-width: 86%;
+    //margin-left:auto;
+    //margin-right: auto;
+}
+.section-2-text-title span{
+    font-size: 25px;
+    font-weight: 700;
+    color: #036e93;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.section-2-subtext-title {
+    font-size: 21px;
+    font-weight: 700;
+    color: #415369;
+    margin-top: 0;
+    margin-bottom: 25px;
+    max-width: 43%;
+    padding-right: 0;
+    line-height: 21px;
+}
+.section-2-subtext,
+.section-2-subtext-2 {
+    font-size: 21px;
+    font-weight: 400;
+    color: #00405b;
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 21px;
+}
+.section-2-subtext {
+    padding-left: 0;
+    max-width: 50%;
+}
+.section-2-subtext-2 {
+    margin-bottom: 80px;
+}
+.section-2-pie-chart-img {
+    //background: url("../images/pie-chart.png") no-repeat center center;
+    //background-size: 345px 310px;
+    min-height: 430px;
+}
+.section-2-pie-chart-text {
+    font-size: 16px;
+    font-weight: 700;
+    color: #415369;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 20px;
+}
+.section-2-pie-chart-text span{
+    font-size: 16px;
+    font-weight: 400;
+    color: #415369;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.section-2-pie-chart-live-img {
+    position: relative;
+    top: 0px;
+    left: 130px;
+    width: 345px;
+    text-align: center;
+    transform: rotate(75deg);
+}
+.section-2-pie-chart-text-1 {
+    position: absolute;
+    top: 75px;
+    left: 495px;
+    width: 155px;
+}
+.section-2-pie-chart-text-2 {
+    position: absolute;
+    top: 270px;
+    left: 460px;
+    width: 155px;
+}
+.section-2-pie-chart-text-3 {
+    position: absolute;
+    top: -5px;
+    left: 105px;
+    width: 155px;
+}
+.section-2-pie-chart-text-4 {
+    position: absolute;
+    top: 95px;
+    left: 35px;
+    width: 155px;
+}
+
+@media screen and (max-width: 1614px) {
+    .section-2-subtext-title,
+    .section-2-subtext,
+    .section-2-subtext-2 {
+        font-size: 19px;
+    }
+}
+
+@media screen and (max-width: 1479px) {
+    .section-2-subtext-title,
+    .section-2-subtext,
+    .section-2-subtext-2 {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 1420px) {
+    .section-2.container-fluid {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 1420px) and (min-width: 1299px) {
+    .section-2-text-title span{
+        font-size: 21px;
+    }
+    .section-2-pie-chart-live-img {
+        width: 300px;
+    }
+    .section-2-pie-chart-text,
+    .section-2-pie-chart-text span{
+        font-size: 15px;
+    }
+    .section-2-pie-chart-text-1 {
+        font-size: 15px;
+        top: 55px;
+        left: 445px;
+    }
+    .section-2-pie-chart-text-2 {
+        font-size: 15px;
+        top: 230px;
+        left: 420px;
+    }
+    .section-2-pie-chart-text-3 {
+        font-size: 15px;
+        top: -15px;
+        left: 105px;
+    }
+    .section-2-pie-chart-text-4 {
+        font-size: 15px;
+        left: 45px;
+        top: 75px;
+        width: 155px;
+    }
+}
+
+@media screen and (max-width: 1329px) {
+    .section-2-subtext-title,
+    .section-2-subtext,
+    .section-2-subtext-2 {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 1298px) {
+    .section-2-text-title span{
+        font-size: 21px;
+    }
+    .section-2-subtext-title {
+        font-size: 15px;
+    }
+    .section-2-subtext,
+    .section-2-subtext-2 {
+        font-size: 15px;
+    }
+    .section-2-pie-chart-live-img {
+        width: 270px;
+    }
+    .section-2-pie-chart-text,
+    .section-2-pie-chart-text span{
+        font-size: 15px;
+    }
+    .section-2-pie-chart-text-1 {
+        font-size: 15px;
+        top: 45px;
+        left: 410px;
+    }
+    .section-2-pie-chart-text-2 {
+        font-size: 15px;
+        top: 230px;
+        left: 375px;
+    }
+    .section-2-pie-chart-text-3 {
+        font-size: 15px;
+        top: -20px;
+        left: 105px;
+    }
+    .section-2-pie-chart-text-4 {
+        font-size: 15px;
+        left: 40px;
+        top: 75px;
+        width: 155px;
+    }
+}
+
+@media screen and (max-width: 1215px) and (min-width: 1200px) {
+    .section-2-subtext,
+    .section-2-subtext-2,
+    .section-2-pie-chart-text,
+    .section-2-pie-chart-text span {
+        font-size: 14.5px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .section-2-subtext-title,
+    .section-2-subtext,
+    .section-2-subtext-2 {
+        font-size: 21px;
+    }
+    .pie-chart-tablet-padding {
+        padding-top: 30px;
+    }
+    .section-2-pie-chart-live-img {
+        left: calc(45% - 125px);
+        top: 5px;
+        width: 345px;
+    }
+    .section-2-pie-chart-text-1 {
+        left: calc(45% + 230px);
+        top: 65px;
+    }
+    .section-2-pie-chart-text-2 {
+        left: calc(45% + 200px);
+        top: 270px;
+    }
+    .section-2-pie-chart-text-3 {
+        left: calc(45% - 150px);
+        top: -15px;
+    }
+    .section-2-pie-chart-text-4 {
+        left: calc(45% - 220px);
+        top: 80px;
+    }
+}
+
+@media screen and (max-width: 949px) {
+    .section-2-subtext-title,
+    .section-2-subtext,
+    .section-2-subtext-2 {
+        font-size: 19px;
+    }
+}
+
+@media screen and (max-width: 849px) {
+    .section-2-subtext-title,
+    .section-2-subtext,
+    .section-2-subtext-2 {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .section-2-text-title span{
+        font-size: 25px;
+    }
+    .section-2-subtext-title {
+        max-width: 270px;
+    }
+    .section-2-subtext-title,
+    .section-2-subtext,
+    .section-2-subtext-2 {
+        font-size: 21px;
+    }
+    .section-2-margin-top-767 {
+        margin-top: 80px;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .section-2-pie-chart-img {
+        min-height: 350px;
+    }
+    .section-2-pie-chart-text,
+    .section-2-pie-chart-text span{
+        font-size: 14px;
+    }
+    .pie-chart-tablet-padding {
+        padding-top: 30px;
+    }
+    .section-2-pie-chart-live-img {
+        left: calc(45% - 105px);
+        top: 5px;
+        width: 270px;
+    }
+    .section-2-pie-chart-text-1 {
+        left: calc(45% + 170px);
+        top: 45px;
+    }
+    .section-2-pie-chart-text-2 {
+        left: calc(45% + 135px);
+        top: 230px;
+    }
+    .section-2-pie-chart-text-3 {
+        left: calc(45% - 150px);
+        top: -15px;
+    }
+    .section-2-pie-chart-text-4 {
+        left: calc(45% - 200px);
+        top: 70px;
+    }
+}
+
+@media screen and (max-width: 514px) {
+    .section-2-text-title span{
+        font-size: 23px;
+    }
+    .section-2-subtext-title {
+        max-width: 270px;
+    }
+    .section-2-subtext-title,
+    .section-2-subtext,
+    .section-2-subtext-2 {
+        font-size: 19px;
+    }
+    .section-2-margin-top-767 {
+        margin-top: 80px;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 509px) {
+    .section-2-pie-chart-img {
+        min-height: 270px;
+    }
+    .pie-chart-tablet-padding {
+        padding-top: 30px;
+    }
+    .section-2-pie-chart-text,
+    .section-2-pie-chart-text span{
+        font-size: 13px;
+        line-height: 16px;
+    }
+    .section-2-pie-chart-live-img {
+        left: calc(45% - 85px);
+        top: 5px;
+        width: 230px;
+    }
+    .section-2-pie-chart-text-1 {
+        left: calc(45% + 145px);
+        top: 45px;
+    }
+    .section-2-pie-chart-text-2 {
+        left: calc(45% + 110px);
+        top: 205px;
+    }
+    .section-2-pie-chart-text-3 {
+        left: calc(45% - 125px);
+        top: -10px;
+    }
+    .section-2-pie-chart-text-4 {
+        left: calc(45% - 170px);
+        top: 65px;
+    }
+}
+
+@media screen and (max-width: 469px) {
+    .section-2-text-title span{
+        font-size: 21px;
+    }
+    .section-2-subtext-title {
+        max-width: 200px;
+    }
+    .section-2-subtext-title,
+    .section-2-subtext,
+    .section-2-subtext-2 {
+        font-size: 17px;
+    }
+    .section-2-margin-top-767 {
+        margin-top: 80px;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 424px) {
+    .section-2-text-title span{
+        font-size: 19px;
+    }
+    .section-2-subtext-title {
+        max-width: 175px;
+    }
+    .section-2-subtext-title,
+    .section-2-subtext,
+    .section-2-subtext-2 {
+        font-size: 15px;
+    }
+    .section-2-margin-top-767 {
+        margin-top: 80px;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 419px) {
+    .section-2-pie-chart-img {
+        min-height: 230px;
+    }
+    .section-2-title {
+        font-size: calc(32px + 3 * ((100vw - 320px) / 880));
+    }
+    .pie-chart-tablet-padding {
+        padding-top: 30px;
+    }
+    .section-2-pie-chart-text,
+    .section-2-pie-chart-text span{
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .section-2-pie-chart-live-img {
+        left: calc(45% - 80px);
+        top: 0px;
+        width: 200px;
+    }
+    .section-2-pie-chart-text-1 {
+        left: calc(45% + 120px);
+        top: 25px;
+    }
+    .section-2-pie-chart-text-2 {
+        left: calc(45% + 100px);
+        top: 165px;
+    }
+    .section-2-pie-chart-text-3 {
+        left: calc(45% - 120px);
+        top: -15px;
+    }
+    .section-2-pie-chart-text-4 {
+        left: calc(45% - 160px);
+        top: 55px;
+    }
+}
+
+@media screen and (max-width: 379px) {
+    .section-2-text-title span{
+        font-size: 17px;
+    }
+    .section-2-subtext-title {
+        max-width: 155px;
+    }
+    .section-2-subtext-title,
+    .section-2-subtext,
+    .section-2-subtext-2 {
+        font-size: 13px;
+    }
+    .section-2-margin-top-767 {
+        margin-top: 80px;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 359px) {
+    .pie-chart-tablet-padding {
+        padding-top: 30px;
+    }
+    .section-2-pie-chart-text,
+    .section-2-pie-chart-text span{
+        font-size: 11px;
+        line-height: 12px;
+    }
+    .section-2-pie-chart-live-img {
+        left: calc(45% - 68px);
+        top: 0px;
+        width: 175px;
+    }
+    .section-2-pie-chart-text-1 {
+        left: calc(45% + 105px);
+        top: 23px;
+    }
+    .section-2-pie-chart-text-2 {
+        left: calc(45% + 90px);
+        top: 145px;
+    }
+    .section-2-pie-chart-text-3 {
+        left: calc(45% - 100px);
+        top: -10px;
+    }
+    .section-2-pie-chart-text-4 {
+        left: calc(45% - 140px);
+        top: 45px;
+    }
+}
+
+@media screen and (max-width: 334px) {
+    .section-2-text-title span{
+        font-size: 16px;
+    }
+    .section-2-subtext-title {
+        max-width: 155px;
+    }
+    .section-2-subtext-title,
+    .section-2-subtext,
+    .section-2-subtext-2 {
+        font-size: 12px;
+    }
+    .section-2-margin-top-767 {
+        margin-top: 80px;
+        margin-bottom: 40px;
+    }
+}

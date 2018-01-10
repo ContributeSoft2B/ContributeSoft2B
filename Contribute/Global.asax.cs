@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -17,6 +18,19 @@ namespace Contribute
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            if (Request.Url.ToString().ToLower().IndexOf("index.html") != -1)
+            {
+                //重定向
+                Response.StatusCode = (int)HttpStatusCode.MovedPermanently;
+                Response.Status = "301 Moved Permanently";
+                Response.RedirectLocation = Request.Url.OriginalString.Replace("index.html", "");
+                Response.End();
+            }
+           
+        }
+
         protected void Application_AuthenticateRequest(Object sender, EventArgs e)
         {
             HttpApplication app = (HttpApplication)sender;

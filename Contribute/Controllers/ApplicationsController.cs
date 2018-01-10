@@ -50,23 +50,14 @@ namespace Contribute.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,FullJobTitle,Email,SocialReputation,Description,NeoOriginAddress,Neo,Btc,BtcOriginAddress")] Applications applications, HttpPostedFileBase fileToUpload)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,FullJobTitle,Email,Phone,Telegram")] Applications applications, HttpPostedFileBase fileToUpload)
         {
             if (ModelState.IsValid)
             {
-                if (fileToUpload != null)
-                {
-                    string fileName = Guid.NewGuid().ToString() + ".jpg";
-                    string path = System.IO.Path.Combine(Server.MapPath("~/Upload"), fileName);
-                    fileToUpload.SaveAs(path);
-                    applications.File = fileName;
-
-                    applications.CreateTime = DateTime.UtcNow;
-                    db.Applications.Add(applications);
-                    db.SaveChanges();
-                    return Redirect("/");
-                }
-                ViewBag.Msg = "请上传文件";
+                applications.CreateTime = DateTime.UtcNow;
+                db.Applications.Add(applications);
+                db.SaveChanges();
+                return Redirect("/");
             }
             return View(applications);
         }
@@ -85,7 +76,12 @@ namespace Contribute.Controllers
             }
             return View(applications);
         }
-
+        [AllowAnonymous]
+        public ActionResult Success()
+        {
+           
+            return View();
+        }
         // POST: Applications/Edit/5
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
