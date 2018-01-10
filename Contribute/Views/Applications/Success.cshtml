@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Success";
-
+    string successStr = "Congratulations on your successful submission!";
     Layout = "~/Views/Shared/_CreateLayout.cshtml";
 }
 
@@ -20,9 +20,8 @@
     </div>
 </div>
 <div class="suc-tip">
-   <span><img src="~/images/icon/suc.png" /><br />恭喜您成功提交！</span>
+   <span><img src="~/images/icon/suc.png" /><br />@successStr</span>
 </div>
-<span style="color: red">恭喜您成功提交！</span>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script src="~/Scripts/activeMenu.js"></script>
