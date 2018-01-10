@@ -13,17 +13,17 @@ $(function($) {
     var header = '\
             <div class="header-wrap">\
                 <div class="site-header__elements">\
-                    <a href="/" class="header-style site-logo">\
+                    <a href="" class="header-style site-logo">\
                         <img src="../images/logo.png" alt="Logo" width="300">\
                     </a>\
                     <nav class="header-style main-nav">\
                         <ul class="primary-menu">\
-                            <li><a href="/">Home</a></li>\
-                            <li><a href="/STBChain-cn.pdf" target="_blank">WhitePaper</a></li>\
-                            <li><a href="/#team_member">Team</a></li>\
-                            <li><a href="/#partners">Partners</a></li>\
-                            <li><a href="/#contact">Contact</a></li>\
-                            <li><a href="/qa.html" target="_blank">Q&A</a></li>\
+                            <li><a href="">Home</a></li>\
+                            <li><a href="STBChain-cn.pdf" target="_blank">WhitePaper</a></li>\
+                            <li><a href="#team_member">Team</a></li>\
+                            <li><a href="#partners">Partners</a></li>\
+                            <li><a href="#contact">Contact</a></li>\
+                            <li><a href="qa.html" target="_blank">Q&A</a></li>\
                             <li>\
                             <ul class="languagepicker roundborders large" dir="ltr">\
                                 <li><span class="flag-icon flag-icon-'+(lang=='CN'?'cn':'gb')+'"></span>&nbsp; '+lang+'</li>\
@@ -40,6 +40,7 @@ $(function($) {
                         </ul>\
                         <div class="margin-10 "></div>\
                     </nav>\
+                    <a href="/Applications/Create" class="header-style btn btn--alt btn-hover hidden-on-mob" target="_blank">Whitelist</a >&ensp;\
                     <a class="header-style icon-telegram hidden-on-mob" href="https://t.me/soft2b" target="_blank"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>\
                 </div>\
                 <button class="toggle-nav">\
@@ -71,7 +72,7 @@ $(function($) {
 	            </div>\
 	        </div>\
 	        <div class="row">\
-	            <p class="footer-copyright text--centered">©2017-2018 Copyright By STBChain Foundation.</p>\
+	            <p class="footer-copyright text--centered">©2017 Copyright By STBChain Foundation.</p>\
 	        </div>\
 	    </div>'
     ;

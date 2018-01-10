@@ -40,6 +40,7 @@ $(function($) {
                         </ul>\
                         <div class="margin-10 "></div>\
                     </nav>\
+                    <a href="/Applications/Create" class="header-style btn btn--alt btn-hover hidden-on-mob" target="_blank">Whitelist</a >&ensp;\
                     <a class="header-style icon-telegram hidden-on-mob" href="https://t.me/soft2b" target="_blank"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>\
                 </div>\
                 <button class="toggle-nav">\
