@@ -49,7 +49,7 @@ namespace Contribute.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,FullJobTitle,Email,SocialReputation,Description,BtcOriginAddress,Btc")] KycInfos kycInfos, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,FullJobTitle,Email,Description,BtcOriginAddress,Btc")] KycInfos kycInfos, HttpPostedFileBase file)
         {
             string fileIsNullMsg = "";
             if (file == null)
@@ -101,7 +101,7 @@ namespace Contribute.Controllers
             {
                 db.Entry(kycInfos).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             return View(kycInfos);
         }
@@ -129,7 +129,7 @@ namespace Contribute.Controllers
             KycInfos kycInfos = db.KycInfos.Find(id);
             db.KycInfos.Remove(kycInfos);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
         protected override void Dispose(bool disposing)
