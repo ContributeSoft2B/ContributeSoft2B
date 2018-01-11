@@ -13,22 +13,22 @@ $(function($) {
     var header = '\
             <div class="header-wrap">\
                 <div class="site-header__elements">\
-                    <a href="" class="header-style site-logo">\
-                        <img src="images/logo.png" alt="Logo" width="300">\
+                    <a href="/" class="header-style site-logo">\
+                        <img src="/images/logo.png" alt="Logo" width="300">\
                     </a>\
                     <nav class="header-style main-nav">\
                         <ul class="primary-menu">\
-                            <li><a href="">Home</a></li>\
-                            <li><a href="STBChain-cn.pdf" target="_blank">WhitePaper</a></li>\
-                            <li><a href="#team_member">Team</a></li>\
-                            <li><a href="#partners">Partners</a></li>\
-                            <li><a href="#contact">Contact</a></li>\
-                            <li><a href="qa.html" target="_blank">Q&A</a></li>\
+                            <li><a href="/">Home</a></li>\
+                            <li><a href="/STBChain-cn.pdf" target="_blank">WhitePaper</a></li>\
+                            <li><a href="/#team_member">Team</a></li>\
+                            <li><a href="/#partners">Partners</a></li>\
+                            <li><a href="/#contact">Contact</a></li>\
+                            <li><a href="/qa.html" target="_blank">Q&A</a></li>\
                             <li>\
                             <ul class="languagepicker roundborders large" dir="ltr">\
                                 <li><span class="flag-icon flag-icon-'+(lang=='CN'?'cn':'gb')+'"></span>&nbsp; '+lang+'</li>\
-                                <li><a href="index.html?lang=en"><span class="flag-icon flag-icon-gb"></span>&nbsp; EN</a></li>\
-                                <li><a href="home.html?lang=cn"><span class="flag-icon flag-icon-cn"></span>&nbsp; CN</a></li>'+
+                                <li><a href="/index.html?lang=en"><span class="flag-icon flag-icon-gb"></span>&nbsp; EN</a></li>\
+                                <li><a href="/home.html?lang=cn"><span class="flag-icon flag-icon-cn"></span>&nbsp; CN</a></li>'+
                                 /*<li><a href="soft2b.com/?lang=ar"><span class="flag-icon flag-icon-ae"></span>&nbsp; AR</a></li>*/
                             '</ul>\
                             <div class=""></div>\
@@ -57,14 +57,14 @@ $(function($) {
 	                <div class="footer-follow-us-wrap">\
 	                    <p class="footer-widget-title">CONTACT US</p>\
 	                    <ul class="footer-follow-us-icon-list">\
-	                        <li><a href="mailto:stbchain@gmail.com?subject=stb" target="_blank" title="stbchain@gmail.com"><i class="fa fa-email" aria-hidden="true"><img src="images/icon/email.png"></i></a></li>\
+	                        <li><a href="mailto:stbchain@gmail.com?subject=stb" target="_blank" title="stbchain@gmail.com"><i class="fa fa-email" aria-hidden="true"><img src="/images/icon/email.png"></i></a></li>\
 	                        <li><a href="https://t.me/soft2b" target="_blank" title="Telegram STB"><i class="fa fa-paper-plane" aria-hidden="true"></i></a></li>\
 	                        <!-- <li><a href="https://facebook.com/soft2b.com" target="_blank" title="Facebook soft2b.com"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> -->\
 	                        <li><a href="https://github.com/stbchain" target="_blank" title="Github STB"><i class="fa fa-github" aria-hidden="true"></i></a></li>\
 	                        <li><a href="https://twitter.com/stbchain" target="_blank" title="Twitter STB"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>\
 	                        <li><a href="https://stbchain.slack.com/" target="_blank" title="slack"><i class="fa fa-slack" aria-hidden="true"></i></a></li>\
 	                        <li><a href="https://qq.com" target="_blank" title="QQ"><i class="fa fa-qq" aria-hidden="true"></i></a></li>\
-	                        <li><a href="https://weixin.com/@soft2b.com" target="_blank" title="Medium soft2b.com"><i class="fa fa-weixin" aria-hidden="true"><span class="inner"><img src="images/1420920937.jpg" class="wximg"></span></i></a>\
+	                        <li><a href="javascript:;" title="Medium soft2b.com"><i class="fa fa-weixin" aria-hidden="true"><span class="inner"><img src="/images/1420920937.jpg" class="wximg"></span></i></a>\
 	                            \
 	                        </li>\
 	                    </ul>\
@@ -82,25 +82,46 @@ $(function($) {
                 <li class="active parentLi">\
                     <a href="#" class="caret"></a>\
                     <span class="language-switcher">\
-                          <img src="images/globe.svg" class="lang__icon" alt="Globe" width="28" height="28"/>&nbsp Language<img src="images/drop.svg" class="lang__icon-drop" alt="Globe" width="20" height="20"/>\
+                          <img src="/images/globe.svg" class="lang__icon" alt="Globe" width="28" height="28"/>&nbsp Language<img src="/images/drop.svg" class="lang__icon-drop" alt="Globe" width="20" height="20"/>\
                         </span>\
                     <ul class="lang-submenu" style="display: none;width: 100%">\
-                        <li><a href="index.html?lang=en"><span class="flag-icon flag-icon-gb"></span>&nbsp EN</a></li>\
-                        <li ><a href="home.html?lang=cn"><span class="flag-icon flag-icon-cn"></span>&nbsp CN</a></li>\
+                        <li><a href="/index.html?lang=en"><span class="flag-icon flag-icon-gb"></span>&nbsp EN</a></li>\
+                        <li ><a href="/home.html?lang=cn"><span class="flag-icon flag-icon-cn"></span>&nbsp CN</a></li>\
                     </ul>\
                 </li>\
             </ul>\
         </div>\
 	    <ul class="mob-menu">\
-	    <li><a href="">Home</a></li>\
-	    <li><a href="STBChain-cn.pdf" target="_blank">WhitePaper</a></li>\
-	    <li><a href="#team_member">Team</a></li>\
-	    <li><a href="#partners">Partners</a></li>\
-	    <li><a href="#contact">Contact</a></li>\
-	    <li><a href="qa.html" target="_blank">Q&A</a></li>\
+	    <li><a href="/">Home</a></li>\
+	    <li><a href="/STBChain-cn.pdf" target="_blank">WhitePaper</a></li>\
+	    <li><a href="/#team_member">Team</a></li>\
+	    <li><a href="/#partners">Partners</a></li>\
+	    <li><a href="/#contact">Contact</a></li>\
+	    <li><a href="/qa.html" target="_blank">Q&A</a></li>\
 	    </ul>'
     ;
     $('header.site-header').append(header);
     $('footer.site-footer').append(footer);
     $('#site-menu').append(sitemenu);
+
+    function i() {
+        $("#site-wrapper").hasClass("show-nav") ? $("#site-wrapper").removeClass("show-nav") : $("#site-wrapper").addClass("show-nav");
+    }
+    $(".toggle-nav,.mob-menu a").click(function () {
+        i()
+    })
 });
+$(function (e) {
+    e("ul.mob-menu li").has("ul").addClass("parentLi");
+    e("ul.mob-menu li ul").addClass("sub-menu");
+    e("ul.mob-menu .parentLi > a").append("▼");
+    e("ul.mob-menu .sub-menu").hide();
+    e("ul.mob-menu .parentLi > a").on("click", function (i) {
+        i.preventDefault(), e(this).toggleClass("expanded"), e(this).parent().find("ul.sub-menu").slideToggle()
+    });
+    e(".mobile-language li").has("ul").addClass("parentLi").prepend('<a href="#" class="caret"></a>');
+    e(".lang-submenu").hide();
+    e(".mobile-language .caret").on("click", function (i) {
+        i.preventDefault(), e(this).parent().find("ul.lang-submenu").slideToggle()
+    })
+})

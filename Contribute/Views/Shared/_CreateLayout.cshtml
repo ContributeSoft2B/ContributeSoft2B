@@ -7,10 +7,11 @@
     <meta name="description" content="soft2b.com is a blockchain, STB Chain">
     <meta name="viewport" content="width=divice-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="~/to/css/header.css">
     <link rel="stylesheet" href="~/to/css/main.css">
+    <link rel="stylesheet" href="~/to/css/header.css">
     <link rel="stylesheet" href="~/to/css/home.css">
     <link rel="stylesheet" href="~/to/css/custom.css">
+    <link rel="stylesheet" href="~/to/css/flag-icon.min.css">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -34,11 +35,14 @@
             </div>
         </div>
     </div>*@
-    <header class="header-style site-header"></header>
-        @RenderBody()
-        <hr />
-    <footer class="site-footer modern-footer" id="contact"></footer>
-
+    <div id="site-wrapper">
+        <div id="site-canvas">
+            <header class="header-style site-header"></header>
+            @RenderBody()
+            <hr />
+            <footer class="site-footer modern-footer" id="contact"></footer>
+        </div>
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
