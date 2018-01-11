@@ -57,7 +57,7 @@ $(function($) {
 	                <div class="footer-follow-us-wrap">\
 	                    <p class="footer-widget-title">CONTACT US</p>\
 	                    <ul class="footer-follow-us-icon-list">\
-	                        <li><a href="mailto:stbchain@gmail.com?subject=stb" target="_blank" title="stbchain@gmail.com"><i class="fa fa-email" aria-hidden="true"><img src="images/icon/email.png"></i></a></li>\
+	                        <li><a href="mailto:stbchain@gmail.com?subject=stb" target="_blank" title="stbchain@gmail.com"><i class="fa fa-email" aria-hidden="true"><img src="../images/icon/email.png"></i></a></li>\
 	                        <li><a href="https://t.me/soft2b" target="_blank" title="Telegram STB"><i class="fa fa-paper-plane" aria-hidden="true"></i></a></li>\
 	                        <!-- <li><a href="https://facebook.com/soft2b.com" target="_blank" title="Facebook soft2b.com"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> -->\
 	                        <li><a href="https://github.com/stbchain" target="_blank" title="Github STB"><i class="fa fa-github" aria-hidden="true"></i></a></li>\
