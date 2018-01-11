@@ -27,10 +27,7 @@ namespace ContributeComponents.Domains
         [RegularExpression(@"^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Email is invalid or already taken")]
         [Display(Name = "Email")]
         public string Email { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "required")]
-        [Display(Name = "Social Reputation")]
-        [StringLength(255, ErrorMessage = "The content must not exceed 255 characters")]
-        public string SocialReputation { get; set; }
+       
         [Required(AllowEmptyStrings = false, ErrorMessage = "required")]
         [Display(Name = "Describe yourself & how you can help as a community member")]
         [StringLength(255, ErrorMessage = "The content must not exceed 255 characters")]
