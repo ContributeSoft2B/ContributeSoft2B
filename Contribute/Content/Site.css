@@ -14,7 +14,6 @@
 .dl-horizontal dt {
     white-space: normal;
 }
-.text-danger{display:-none;}
 .title{color:#fff;font-size:26px;padding-top:10px;}
 .isneed::before{content:'*';color:red;margin-right:0.4em;}
 .form-horizontal{width:90%;margin:0 auto;background:#fff;border-radius:0.4rem;padding:10px 20px;position:relative;z-index:1;margin-top:60px;box-shadow:0 0 4px rgba(0,0,0,0.5) ;}
@@ -52,3 +51,5 @@ border-bottom: none;
 .mobile-language .lang-submenu li {
 background: #111;
 }
+.stb-ag{padding: .75em 1.8em;line-height:1.2;}
+.sub-btn.disabled{pointer-events:auto !important;cursor:default;}

@@ -106,10 +106,10 @@ $(function($) {
 
     function i() {
         $("#site-wrapper").hasClass("show-nav") ? $("#site-wrapper").removeClass("show-nav") : $("#site-wrapper").addClass("show-nav");
-    }
+    };
     $(".toggle-nav,.mob-menu a").click(function () {
         i()
-    })
+    });
 });
 $(function (e) {
     e("ul.mob-menu li").has("ul").addClass("parentLi");
