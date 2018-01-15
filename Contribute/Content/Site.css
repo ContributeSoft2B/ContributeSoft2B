@@ -1,6 +1,5 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -15,7 +14,6 @@
 .dl-horizontal dt {
     white-space: normal;
 }
-.text-danger{display:-none;}
 .title{color:#fff;font-size:26px;padding-top:10px;}
 .isneed::before{content:'*';color:red;margin-right:0.4em;}
 .form-horizontal{width:90%;margin:0 auto;background:#fff;border-radius:0.4rem;padding:10px 20px;position:relative;z-index:1;margin-top:60px;box-shadow:0 0 4px rgba(0,0,0,0.5) ;}
@@ -30,7 +28,7 @@
     color:#fff;
 }
 .centerPiece {
-    padding-top: 60px;
+    padding-top: 120px;
 }
 .parallax-image {
     background: url(../images/wallup-267445.jpg) center center no-repeat fixed;
@@ -41,3 +39,17 @@
     z-index:0;
 }
 .text-danger.attention{background-color:#fff7e8;margin-top:5px;display:block;}
+
+.section1-sub-header {max-width: 400px !important;padding: 3px 19px !important;}
+    .header-style.btn--alt.header-white, .header-style.btn--alt.header-ico {min-width: 230px}
+.mobile-language li.active span{
+padding: 0 1em;
+display: inline-block;
+color: #fff;
+border-bottom: none;
+}
+.mobile-language .lang-submenu li {
+background: #111;
+}
+.stb-ag{padding: .75em 1.8em;line-height:1.2;}
+.sub-btn.disabled{pointer-events:auto !important;cursor:default;}

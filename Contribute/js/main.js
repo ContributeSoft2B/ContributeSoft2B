@@ -26,19 +26,13 @@ jQuery(document).ready(function (e) {
         i.preventDefault();
         var t = e("body").offset().top;
         e("html, body").animate({scrollTop: t}, 500, "linear")
-    }), e(".toggle-nav,.mob-menu a").click(function () {
-        i()
     }), e(document).keyup(function (t) {
         27 === t.keyCode && e("#site-wrapper").hasClass("show-nav") && i()
     }), enquire.register("screen and (min-width: 768px)", {
         match: function () {
             t()
         }
-    }), e("ul.mob-menu li").has("ul").addClass("parentLi"), e("ul.mob-menu li ul").addClass("sub-menu"), e("ul.mob-menu .parentLi > a").append("▼"), e("ul.mob-menu .sub-menu").hide(), e("ul.mob-menu .parentLi > a").on("click", function (i) {
-        i.preventDefault(), e(this).toggleClass("expanded"), e(this).parent().find("ul.sub-menu").slideToggle()
-    }), e(".mobile-language li").has("ul").addClass("parentLi").prepend('<a href="#" class="caret"></a>'), e(".lang-submenu").hide(), e(".mobile-language .caret").on("click", function (i) {
-        i.preventDefault(), e(this).parent().find("ul.lang-submenu").slideToggle()
-    }), "accepted" == Cookies.get("eu-cookie-law") ? e(".cookie-bar").removeClass("cookie-bar--not-accepted") : e(".cookie-bar").addClass("cookie-bar--not-accepted"), e(".js-accept-cookie").on("click", function (i) {
+    }),  "accepted" == Cookies.get("eu-cookie-law") ? e(".cookie-bar").removeClass("cookie-bar--not-accepted") : e(".cookie-bar").addClass("cookie-bar--not-accepted"), e(".js-accept-cookie").on("click", function (i) {
         i.preventDefault(), Cookies.set("eu-cookie-law", "accepted", {expires: 180}), e(".cookie-bar").removeClass("cookie-bar--not-accepted")
     }), FastClick.attach(document.body), e(".primary-menu .menu-item-has-children > a").on("click", function (i) {
         i.preventDefault(), e(this).parent().toggleClass("opened")
