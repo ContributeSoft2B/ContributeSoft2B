@@ -19,7 +19,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
-        
+
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
@@ -32,48 +32,69 @@
         <th>
             @Html.DisplayNameFor(model => model.Btc)
         </th>
-       
+
         <th>
             @Html.DisplayNameFor(model => model.CreateTime)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FullJobTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            <img src="~/Upload/@item.File" style="width: 100px;height: 100px" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BtcOriginAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Btc)
-        </td>
-       
-        <td>
-            @Html.DisplayFor(modelItem => item.CreateTime)
-        </td>
-        <td>
-            @Html.ActionLink("删除", "Delete", new { id = item.Id },new { @class = "btn btn-danger" })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullJobTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <img src="~/Upload/@item.File" style="width: 100px;height: 100px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BtcOriginAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Btc)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateTime)
+            </td>
+            <td>
+                @Html.ActionLink("删除", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                <a class="btn btn-primary" onclick="auditing(@item.Id)">审核通过</a>
+
+            </td>
+        </tr>
+    }
 
 </table>
+@section scripts{
+
+    <script>
+        function auditing(id) {
+            var r = confirm("审核通过将会发邮件给申请人");
+            if (r === true) {
+                $.post(
+                    "/KycInfos/Auditing",
+                     { id: id },
+                 function () {
+                     alert("邮件已发送");
+                 });
+            } else {
+                return;
+            }
+        }
+    </script>
+}
