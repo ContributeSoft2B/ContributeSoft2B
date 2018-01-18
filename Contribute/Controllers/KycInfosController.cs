@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using ContributeComponents.Domains;
 using ContributeComponents.Repositories.Ef;
+using System.Net.Mail;
+using System.Text;
 
 namespace Contribute.Controllers
 {
@@ -131,7 +133,37 @@ namespace Contribute.Controllers
             db.SaveChanges();
             return RedirectToAction("List");
         }
-
+        [HttpPost]
+        public ActionResult Auditing(int id)
+        {
+            KycInfos kycInfos = db.KycInfos.Find(id);
+            var msg = "您的申请已通过审核！~";
+            var mg = new MailMessage();
+            mg.To.Add("372364996@qq.com");//此处上线要改成kycInfos.Email
+            mg.From = new MailAddress("372364996@qq.com",  msg, Encoding.UTF8);
+            mg.Subject = msg+"-SOFT2B.COM";//邮件标题 
+            mg.SubjectEncoding = Encoding.UTF8;//邮件标题编码 
+            mg.Body = "<a>点我呀！~</a>";//邮件内容 
+            mg.BodyEncoding = Encoding.UTF8;//邮件内容编码 
+            mg.IsBodyHtml = false;//是否是HTML邮件 
+            mg.Priority = MailPriority.High;//邮件优先级
+            var client = new SmtpClient
+            {
+                Credentials = new NetworkCredential("372364996@qq.com", "dupeng1484"),
+                Host = "smtp.qq.com"
+            };
+            try
+            {
+               
+                client.Send(mg);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return RedirectToAction("List");
+        }
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)
