@@ -17,7 +17,7 @@ b{font-weight:bold;}
 a,h1,h2,h3,h4,h5,h6,p{font-family:Roboto,sans-serif;font-style:normal;font-weight:300;color:#fff;-webkit-transition:color .2s;transition:color .2s}
 a:hover{color:#4f377a!important}
 
-.collapse_content h4{font-size:24px;line-height:32px;font-weight:500;margin:0;padding:10px 0;}
+.collapse_content h4{font-size:24px;line-height:32px;font-weight:500;margin:0;padding:10px 0;word-break:break-all;}
 
 .drop-arrow-button{margin-top:10px;border:1px #fff;display:inline-block;float:left;width:36px;height:36px;background:transparent;padding:0;}
 .arrow-drop{color:#f8b62b;font-size:18px}
