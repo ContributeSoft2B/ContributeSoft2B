@@ -10,7 +10,6 @@ $(function($) {
     });
 
     var lang = $('input.lang').val();
-    console.log(lang);
     var header = '\
             <div class="header-wrap">\
                 <div class="site-header__elements">\
@@ -20,7 +19,7 @@ $(function($) {
                     <nav class="header-style main-nav">\
                         <ul class="primary-menu">\
                             <li><a href="/">Home</a></li>\
-                            <li><a href="/STBChain-cn.pdf" target="_blank">WhitePaper</a></li>\
+                            <li><a href="/STBChain-'+lang+'.pdf" target="_blank">WhitePaper</a></li>\
                             <li><a href="/#team_member">Team</a></li>\
                             <li><a href="/#partners">Partners</a></li>\
                             <li><a href="/#contact">Contact</a></li>\
