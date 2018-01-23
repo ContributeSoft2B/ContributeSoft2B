@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<ContributeComponents.Domains.KycInfos>
 
 @{
-    ViewBag.Title = "KYC管理";
+    ViewBag.Title = "KYC111管理";
 }
 
-<h2>@ViewBag.Title </h2>
+<h2 style="margin-top: 60px">@ViewBag.Title (共 @Model.Count() 报名)</h2>
 <table class="table">
     <tr>
         <th>
@@ -59,7 +59,7 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                <img src="~/Upload/@item.File" style="width: 100px;height: 100px" />
+                <img src="~/Upload/@item.File" style="width: 100px; height: 100px"/>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.BtcOriginAddress)
@@ -72,7 +72,7 @@
                 @Html.DisplayFor(modelItem => item.CreateTime)
             </td>
             <td>
-                @Html.ActionLink("删除", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("删除", "Delete", new {id = item.Id}, new {@class = "btn btn-danger"})
                 <a class="btn btn-primary" onclick="auditing(@item.Id)">审核通过</a>
 
             </td>
