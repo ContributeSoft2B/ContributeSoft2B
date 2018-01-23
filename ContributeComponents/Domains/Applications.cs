@@ -29,7 +29,7 @@ namespace ContributeComponents.Domains
         [Display(Name = "Email")]
         public string Email { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "required")]
-        [RegularExpression(@"^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|4|5|6|7|8|9])\d{8}$", ErrorMessage = "Phone is invalid or already taken")]
+        [RegularExpression(@"^(13[0-9]|14[5|7]|17[6]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|4|5|6|7|8|9])\d{8}$", ErrorMessage = "Phone is invalid or already taken")]
         [Display(Name = "Phone")]
 
         public string Phone { get; set; }
