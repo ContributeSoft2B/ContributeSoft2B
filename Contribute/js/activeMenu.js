@@ -71,6 +71,7 @@ $(function($) {
 	                </div>\
 	            </div>\
 	        </div>\
+            <div class="row"><p class="f-address text--centered" > Address: 9 Temasek Boulevard #04 - 02,&nbsp; Suntec Tower Two,&nbsp; Singapore 038989</p >\</div>\
 	        <div class="row">\
 	            <p class="footer-copyright text--centered">©2017 Copyright By STBChain Foundation.</p>\
 	        </div>\

@@ -70,7 +70,7 @@ a.btn.btn--alt.menu-btn:hover{color:#425469;border-color:#425469;}
 .modern-footer .footer-follow-us-icon-list li:last-child a i{padding-right:0;}
 .modern-footer .footer-follow-us-icon-list li a:hover{color:#f8b62b;}
 .modern-footer .footer-seperator hr{border-color:#fff;}
-.modern-footer .footer-copyright{font-size:16px;color:#cbcbcb;font-weight:400;line-height:19.2px;}
+.modern-footer .footer-copyright,.modern-footer .f-address{font-size:16px;color:#cbcbcb;font-weight:400;line-height:19.2px;margin:2px 0;}
 .modern-footer .footer-policies{font-size:16px;color:#cbcbcb;text-align:right;font-weight:400;line-height:19.2px;}
 .modern-footer .footer-policies a{font-size:14px;color:#cbcbcb;text-decoration:none;vertical-align:middle;display:inline-block;}
 .modern-footer .footer-policies a:first-child{margin-right:10px;}
