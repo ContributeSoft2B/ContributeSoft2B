@@ -43,6 +43,7 @@
 <div class="browserupgrade">您的浏览器已经<strong>陈旧</strong>，请 <a href="http://chrome.com/">更新您的浏览器，</a> 改善您的体验。</div>
 <![endif]-->
 <script async="" src="js/js.js"></script>
+    <div class="popimg"><img src="/images/exchange/rzl.png" class=""><span class="cls-btn">×</span></div>
 <div id="site-wrapper">
     <div id="site-canvas">
         <!--header menu-->
@@ -59,14 +60,14 @@
                     <img src="images/show-logo.png" alt="Logo" width="200" height="200">
                 </p>
                 <p id="header-title-change" class="header-style title title--large wow fadeInUpSlightly margin-0 letter-spacing" data-wow-delay="0.6s">
-                    区块链驱动的软件服务新生态                        </p>
+                    让软件流通更自由                        </p>
 
                     <div style="clear: both;content: ''; display: table; margin-top: 40px;"></div>
                 <p class="header-style title title--lg-small">
-                    基于区块链技术的软件版权保护和交易平台</p>
+                    澳洲U网 满币网已开放全球同步交易</p>
                 <p class="showcase__buttons desktop margin-70">
-                    <a href="https://soft2b.com/STBChain-cn.pdf" target="_blank" class="header-style btn btn--alt header-white min-width-mob wow fadeInLeftSlightly" data-wow-delay="1.2s">白皮书</a>
-                    <a href="/Applications/Create" class="header-style btn btn--alt header-ico second-btn wow min-width-mob fadeInRightSlightly" data-wow-delay="1.2s" target="_blank">白名单</a>
+                    <a href="http://www.coinbene.com/" target="_blank" class="header-style btn btn--alt header-white min-width-mob wow fadeInLeftSlightly" data-wow-delay="1.2s">满币网</a>
+                    <a href="https://www.uncoinex.com/home" class="header-style btn btn--alt header-ico second-btn wow min-width-mob fadeInRightSlightly" data-wow-delay="1.2s" target="_blank">澳洲U网</a>
                 </p>
                 <p class="header-style text--large"></p>
             </div>
@@ -791,7 +792,7 @@
                 <img src="images/exchange/bcdwslogo.png" class="pt-icon">
             </div>
             <div class="col-lg-3  col-sm-4 col-xs-12 margin-bottom-30">
-                <img src="images/61022253.jpg" class="pt-icon">
+                <img src="images/exchange/1321276000.jpg" class="pt-icon">
             </div>
         </div>
     </div>
@@ -869,7 +870,6 @@
     </footer>
         </div> <!-- /#site-canvas -->
     </div> <!-- /#site-wrapper -->
-
     <script data-cfasync="false" src="js/email-decode.min.js"></script><script src="js/jquery-1.12.0.min.js"></script>
     <script src="js/moment.js"></script>
     <script src="js/moment-timezone-with-data.js"></script>
@@ -879,12 +879,23 @@
         window.jQuery || document.write('<script src="assets/js/vendor/jquery.js"><\/script>');
     </script>
     <script>
+    $(function () {
         $('.languagepicker').hover(function (e) {
             var height = $(".languagepicker")[0].scrollHeight;
             $(".languagepicker").css("height", height + "px");
         }, function () {
             $(".languagepicker").css("height", 0);
         });
+        $('.popimg').css('visibility', 'visible');
+        $('.popimg img').on('load',function () {
+            setTimeout(function () {
+                $('.popimg').fadeOut();
+            }, 8000);
+        });
+        $(document).on('click', function () {
+            $('.popimg').hide();
+        });
+    });
     </script>
     <script src="js/sign_up.js"></script>
     <script src="js/plugins.js"></script>

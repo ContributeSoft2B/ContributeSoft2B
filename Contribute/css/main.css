@@ -2262,7 +2262,7 @@ body{padding:0;margin:0}
 .scroll-to-top{position:fixed;right:10px;bottom:10px;display:block;visibility:hidden;opacity:0;-webkit-transition:all .6s ease;transition:all .6s ease;background:#4896d3;color:#fff;text-decoration:none;text-align:center;z-index:999;width:50px;height:50px;-webkit-transform:translateY(100px);transform:translateY(100px);-webkit-transition:all .5s cubic-bezier(.23,.3,.24,1.18);transition:all .5s cubic-bezier(.23,.3,.24,1.18)}
 .scroll-to-top:hover{background:#2d7dbb;color:#fff;text-decoration:none}
 .scroll-to-top.show{visibility:visible;-webkit-transform:translateY(0);transform:translateY(0);cursor:pointer;opacity:1}
-.site-header{padding-top:1rem;padding-bottom:1rem;width:100%;z-index:999;background:#fff;border-bottom:1px solid #dbdbdb;position:fixed;top:0}
+.site-header{padding-top:1rem;padding-bottom:1rem;width:100%;z-index:99;background:#fff;border-bottom:1px solid #dbdbdb;position:fixed;top:0}
 .site-header__elements{display:-webkit-box;display:-ms-flexbox;display:flex}
 .site-logo{display:inline-block;text-decoration:none;margin-top:.4rem;-webkit-box-flex:0;-ms-flex:0 0 150px;flex:0 0 150px}
 .site-logo img{width:150px;}
