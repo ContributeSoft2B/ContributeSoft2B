@@ -9,7 +9,22 @@ $(function($) {
         }
     });
 
+    var navml;
     var lang = $('input.lang').val();
+    if (lang == "EN") {
+        console.log('en');
+        navml = ' <li><a href="/">Home</a></li>\
+                <li><a href="/STBChain-'+ lang + '.pdf" target="_blank">WhitePaper</a></li>\
+                <li><a href="/#team_member">Team</a></li>\
+                <li><a href="/#partners">Partners</a></li>\
+                <li><a href="/#contact">Contact</a></li>';
+    } else if (lang == "CN") {
+        navml = ' <li><a href="/">首页</a></li>\
+                <li><a href="/STBChain-'+ lang + '.pdf" target="_blank">白皮书</a></li>\
+                <li><a href="/#team_member">团队</a></li>\
+                <li><a href="/#partners">合伙人</a></li>\
+                <li><a href="/#contact">联系我们</a></li>';
+    }
     var header = '\
             <div class="header-wrap">\
                 <div class="site-header__elements">\
@@ -17,25 +32,16 @@ $(function($) {
                         <img src="/images/logo.png" alt="Logo" width="300">\
                     </a>\
                     <nav class="header-style main-nav">\
-                        <ul class="primary-menu">\
-                            <li><a href="/">Home</a></li>\
-                            <li><a href="/STBChain-'+lang+'.pdf" target="_blank">WhitePaper</a></li>\
-                            <li><a href="/#team_member">Team</a></li>\
-                            <li><a href="/#partners">Partners</a></li>\
-                            <li><a href="/#contact">Contact</a></li>\
-                            <li><a href="/qa'+( (lang=='EN')?'':'_cn')+'.html" target="_blank">Q&A</a></li>\
+                        <ul class="primary-menu">'
+                            +navml+
+                            '<li><a href="/qa'+( (lang=='EN')?'':'_cn')+'.html" target="_blank">Q&A</a></li>\
                             <li>\
                             <ul class="languagepicker roundborders large" dir="ltr">\
                                 <li><span class="flag-icon flag-icon-'+(lang=='CN'?'cn':'gb')+'"></span>&nbsp; '+lang+'</li>\
                                 <li><a href="/index.html?lang=en"><span class="flag-icon flag-icon-gb"></span>&nbsp; EN</a></li>\
                                 <li><a href="/home.html?lang=cn"><span class="flag-icon flag-icon-cn"></span>&nbsp; CN</a></li>'+
-                                /*<li><a href="soft2b.com/?lang=ar"><span class="flag-icon flag-icon-ae"></span>&nbsp; AR</a></li>*/
                             '</ul>\
                             <div class=""></div>\
-                            </li>\
-                            <li class="chat-mobile">\
-                                <a id="livechat-badge" href="#" style="font-family:"Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;display: block;color: #fff;border-bottom: 1px solid #222;padding: 1em 1.5em;text-decoration: none;font-size: 17px;"><i class="fa fa-comment-o" style="font-size: 22px;" aria-hidden="true"></i>\
-                                    在线聊天</a>\
                             </li>\
                         </ul>\
                         <div class="margin-10 "></div>\
@@ -49,7 +55,7 @@ $(function($) {
                     <span class="icon-bar"></span>\
                 </button>\
             </div>'
-    ;
+        ;
     var footer = '\
 		<div class="container-fluid">\
 	        <div class="row text--centered" style="padding-bottom: 38px;">\
@@ -71,6 +77,7 @@ $(function($) {
 	                </div>\
 	            </div>\
 	        </div>\
+            <div class="row"><p class="f-address text--centered" > Address: 9 Temasek Boulevard #04 - 02,&nbsp; Suntec Tower Two,&nbsp; Singapore 038989</p >\</div>\
 	        <div class="row">\
 	            <p class="footer-copyright text--centered">©2017 Copyright By STBChain Foundation.</p>\
 	        </div>\
