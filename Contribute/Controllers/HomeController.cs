@@ -8,9 +8,14 @@ using System.Web.Security;
 using ContributeComponents.Helper;
 using Telegram.Bot;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
 
 namespace Contribute.Controllers
 {
+    public static class Bot
+    {
+        public static readonly TelegramBotClient Api = new TelegramBotClient("397035878:AAFKtZ_Ox1njEn6dtuAY0PQIB8nsJodCzjc");
+    }
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -35,24 +40,30 @@ namespace Contribute.Controllers
         {
             return View();
         }
-        public async Task<ActionResult> Telegram()
+        public async Task<ActionResult> Telegram(Update update)
         {
-            var botClient = new TelegramBotClient("397035878:AAFKtZ_Ox1njEn6dtuAY0PQIB8nsJodCzjc");
-            var me = await botClient.GetMeAsync();
 
-            string text = $"Hello members of channel IG-YdxFTOWY4ClXnikb4CA";
+            var message = update.Message;
 
-            Message message = await botClient.SendTextMessageAsync(
-                chatId: "-290666854",
-                text: text
-            );
+            Console.WriteLine("Received Message from {0}", message.Chat.Id);
 
-            return Json(new { result = $"Hello! My name is {me.IsBot}" }, JsonRequestBehavior.AllowGet);
+            if (message.Type == MessageType.TextMessage&& message.Text.StartsWith("/code"))
+            {
+                // Echo each Message
+                await Bot.Api.SendTextMessageAsync(message.Chat.Id, message.Text);
+            }
+            
+            //var me = await Bot.Api.GetMeAsync();
+
+            //string text = $"Hello members of channel IG-YdxFTOWY4ClXnikb4CA";
+
+            //Message message = await Bot.Api.SendTextMessageAsync(
+            //    chatId: "-290666854",
+            //    text: text
+            //);
+
+            return Json(new { result = true }, JsonRequestBehavior.AllowGet);
         }
-        //public ActionResult Telegram()
-        //{
-        //    return Json(new {result=true},JsonRequestBehavior.AllowGet);
-        //}
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
