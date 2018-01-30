@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using ContributeComponents.Helper;
+using Telegram.Bot;
+using Telegram.Bot.Types;
 
 namespace Contribute.Controllers
 {
@@ -32,6 +35,24 @@ namespace Contribute.Controllers
         {
             return View();
         }
+        public async Task<ActionResult> Telegram()
+        {
+            var botClient = new TelegramBotClient("397035878:AAFKtZ_Ox1njEn6dtuAY0PQIB8nsJodCzjc");
+            var me = await botClient.GetMeAsync();
+
+            string text = $"Hello members of channel IG-YdxFTOWY4ClXnikb4CA";
+
+            Message message = await botClient.SendTextMessageAsync(
+                chatId: "-290666854",
+                text: text
+            );
+
+            return Json(new { result = $"Hello! My name is {me.IsBot}" }, JsonRequestBehavior.AllowGet);
+        }
+        //public ActionResult Telegram()
+        //{
+        //    return Json(new {result=true},JsonRequestBehavior.AllowGet);
+        //}
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
