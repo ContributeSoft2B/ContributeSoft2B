@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using ContributeComponents.Helper;
+using Newtonsoft.Json;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -44,15 +47,58 @@ namespace Contribute.Controllers
         {
 
             var message = update.Message;
-
-            Console.WriteLine("Received Message from {0}", message.Chat.Id);
-
-            if (message.Type == MessageType.TextMessage&& message.Text.StartsWith("/code"))
+            string url = string.Empty;
+            if (message.Type == MessageType.TextMessage && message.Text.StartsWith("/code"))
             {
+                url = $"https://www.soft2b.com/telegram/Verification?verificationCode= {message.Text}";
+
                 // Echo each Message
-                await Bot.Api.SendTextMessageAsync(message.Chat.Id, message.Text);
+                using (WebClient client = new WebClient())
+                {
+                    client.Encoding = Encoding.UTF8;
+                    var resultJson = client.DownloadString(url);
+                    var result = new { Success = false, Msg = string.Empty, InviteUrl = string.Empty };
+                    result = JsonConvert.DeserializeAnonymousType(resultJson, result);
+                    if (result.Success == true)
+                    {
+                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg);
+                    }
+                    else
+                    {
+                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg);
+                    }
+
+                }
             }
-            
+            if (message.Type == MessageType.TextMessage && message.Text.StartsWith("/zc"))
+            {
+                url = $"https://www.soft2b.com/telegram/index?ethAddress= {message.Text}";
+
+                // Echo each Message
+                using (WebClient client = new WebClient())
+                {
+                    client.Encoding = Encoding.UTF8;
+                    var resultJson = client.DownloadString(url);
+                    var result = new
+                    {
+                        Success = false,
+                        Msg = string.Empty,
+                        InviteUrl = string.Empty,
+                        VerificationCode = string.Empty
+                    };
+                    result = JsonConvert.DeserializeAnonymousType(resultJson, result);
+                    if (result.Success == true)
+                    {
+                        await Bot.Api.SendTextMessageAsync(message.Chat.Id,
+                            result.Msg + "\n" + $"邀请链接：{result.InviteUrl}" + "\n" + $"验证码：{result.VerificationCode}");
+                    }
+                    else
+                    {
+                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, "注册失败");
+                    }
+
+                }
+            }
             //var me = await Bot.Api.GetMeAsync();
 
             //string text = $"Hello members of channel IG-YdxFTOWY4ClXnikb4CA";
@@ -88,7 +134,7 @@ namespace Contribute.Controllers
                 Response.Cookies.Add(userCookie);
                 return Redirect(returnUrl);
             }
-            
+
             return View((object)"用户名或密码不正确");
         }
 
