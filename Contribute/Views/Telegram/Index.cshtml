@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TelegramLayout.cshtml";
+}
+<div class="row title--right"><div class="col-xs-12 text-right"><a href="~/Telegram/home" class="langchange">ENGLISH</a></div></div>
+<div class="row">
+    <div class="col-md-12 logo-wrap">
+        <div class="logo-cont"><img src="~/images/token-logo.png" class="logo" />STB</div>
+        <strong class="slogen">让软件流通更自由</strong>
+    </div>
+    
+    <div class="col-md-12 text--centered"><a href="https://t.me/soft2b" target="_blank" class="btn btn-alt">加入STB电报群</a></div>
+    <div class="col-md-12 sometxt text--centered">每邀请一个好友加入，你将额外获得2个STB,邀请越多，奖励越多，赶快行动！</div>
+</div>
+<div class="row e-address">
+    
+        <input type="hidden" value="@ViewBag.ParentId" name="parentId" class="parId" />
+        <div class="form-group col-md-offset-2 col-md-8 e-addr"><input type="text" class="form-control inp" placeholder="请输入你的ETH钱包地址" name="ethAddress" required /></div>
+        <div class="form-group col-md-offset-2 col-md-8 e-sub"><input type="submit" class="btn-sub" value="提交" /></div>
+    
+</div>
+<div class="row">
+    <p class="col-md-offset-1 col-md-10 break-word">STB Chain(STB)是全球领先的软件结合区块链技术落地应用，是去中心化、防篡改、可追溯的科学技术成果确权交易系统，涵盖云计算、大数据、AI及SaaS云服务等多领域技术应用，目标是建立分布式无国界的软件应用服务新生态。通过区块链与软件行业的结合，构建一个绿色、良性的软件发行、确权、交易平台。
+    </p>
+</div>
+
+@section Scripts {
+<script src="~/Scripts/telegram.js"></script>
+}
+
+
+

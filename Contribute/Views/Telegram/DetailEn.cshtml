@@ -1,0 +1,38 @@
+﻿@model ContributeComponents.Domains.Telegrams
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_TelegramLayout.cshtml";
+}
+
+<div class="row title--right"><div class="col-xs-12 text-right"><a href="./Detail?code=@Model.VerificationCode" class="langchange">中文</a></div></div>
+<div class="row">
+    <div class="col-md-12 logo-wrap">
+        <div class="logo-cont"><img src="~/images/token-logo.png" class="logo" />STB</div>
+        <strong class="slogen">Global Software Asset First Chain</strong>
+    </div>
+
+    <div class="col-md-12 sometxt">1. Click to join the STB Telegram group. After the event, we will verify STB offical telegram group, only the effective members in the group will finally get the rewards.</div>
+    <div class="col-md-12 text--centered"><a href="https://t.me/soft2b" target="_blank" class="btn btn-alt join-tme">Global Software Asset First Chain</a></div>
+    <div class="col-md-12 sometxt">2. [Importan!] Copy and send the following referral code to the STB group in Telegram</div>
+    <div class="code-group">
+        <span class="copy-t">@Model.VerificationCode</span>
+        <a href="javascript:;" class="btn-copy">COPY</a>
+    </div>
+    <div class="col-md-12 sometxt">3. Share the following link to your friends, each successful recommendation to join this group can get more 2 STB!</div>
+    <div class="code-group">
+        <span class="copy-t">@Model.InviteUrl</span>
+        <a href="javascript:;" class="btn-copy">COPY</a>
+    </div>
+</div>
+<div class="row statistics text--centered">
+    <div class="col-xs-6">
+        <div class="cont">Invited<span>0</span></div>
+    </div>
+    <div class="col-xs-6">
+        <div class="cont">Earned STB<span>5</span></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/telegram.js"></script>
+}
