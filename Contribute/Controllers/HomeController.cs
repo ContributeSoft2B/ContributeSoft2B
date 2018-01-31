@@ -61,11 +61,11 @@ namespace Contribute.Controllers
                     result = JsonConvert.DeserializeAnonymousType(resultJson, result);
                     if (result.Success == true)
                     {
-                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg);
+                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, "@" + message.From.Username + "\n" + result.Msg);
                     }
                     else
                     {
-                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg);
+                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, "@" + message.From.Username + "\n" + result.Msg);
                     }
 
                 }
@@ -90,11 +90,11 @@ namespace Contribute.Controllers
                     if (result.Success == true)
                     {
                         await Bot.Api.SendTextMessageAsync(message.Chat.Id,
-                            result.Msg + "\n" + $"邀请链接：{result.InviteUrl}" + "\n" + $"验证码：{result.VerificationCode}");
+                          "@"+message.From.Username + "\n" + result.Msg + "\n" + $"邀请链接：{result.InviteUrl}" + "\n" + $"验证码：{result.VerificationCode}");
                     }
                     else
                     {
-                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, "注册失败");
+                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, "@" + message.From.Username + "\n" + "注册失败");
                     }
 
                 }

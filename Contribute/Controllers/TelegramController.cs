@@ -41,11 +41,11 @@ namespace Contribute.Controllers
             var data = db.Telegrams.FirstOrDefault(t => t.VerificationCode == verificationCode.Trim());
             if (data == null)
             {
-                return Json(new { success = false, msg = "验证失败，验证码无效" },JsonRequestBehavior.AllowGet);
+                return Json(new { success = false, msg = $"验证码：{verificationCode}无效，可能的原因如下：\n 1.错误的验证码 \n 2.该验证码好像已经被别人用过 \n 3.您跑错场了" },JsonRequestBehavior.AllowGet);
             }
             data.BindTime=DateTime.UtcNow;
             db.SaveChanges();
-            return Json(new { success = true, msg = "验证成功", data.InviteUrl }, JsonRequestBehavior.AllowGet);
+            return Json(new { success = true, msg = $"收到验证码:{verificationCode},恭喜你验证成功，赶快把邀请链接分享给好友，活动期间每成功推荐一个好友入群，即可获得2个STB!", data.InviteUrl }, JsonRequestBehavior.AllowGet);
 
         }
     }
