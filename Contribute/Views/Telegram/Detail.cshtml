@@ -1,10 +1,10 @@
-﻿
+﻿@model ContributeComponents.Domains.Telegrams
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_TelegramLayout.cshtml";
 }
 
-<div class="row title--right"><div class="col-xs-12 text-right"><a href="./DetailEn" class="langchange">ENGLISH</a></div></div>
+<div class="row title--right"><div class="col-xs-12 text-right"><a href="./DetailEn?code=@Model.VerificationCode" class="langchange">ENGLISH</a></div></div>
 <div class="row">
     <div class="col-md-12 logo-wrap">
         <div class="logo-cont"><img src="~/images/token-logo.png" class="logo" />STB</div>
@@ -14,13 +14,13 @@
     <div class="col-md-12 sometxt">1. 点击以下按钮加入 STB 电报群，在活动结束之后，我们会验证 Telegram 的群组，只有还在群里的有效用户才会发放奖励。</div>
     <div class="col-md-12 text--centered"><a href="https://t.me/soft2b" target="_blank" class="btn btn-alt join-tme">加入STB全球官方电报群</a></div>
     <div class="col-md-12 sometxt">2. 把以下验证码复制粘贴发送到 STB 电报群里（必须）</div>
-    <div class="code-group">/code&ensp;
-        <span class="copy-t">fG2N9wWOhdal</span>
+    <div class="code-group">
+        <span class="copy-t">@Model.VerificationCode</span>
         <a href="javascript:;" class="btn-copy">复制</a>
     </div>
     <div class="col-md-12 sometxt">3. 把以下链接分享给好友，每推荐一个好友入群成功，即可获得2 个 STB！</div>
     <div class="code-group">
-        <span class="copy-t">https://www.gsc.social/airdrop/?cod</span>
+        <span class="copy-t">@Model.InviteUrl</span>
         <a href="javascript:;" class="btn-copy">复制</a>
     </div>
 </div>

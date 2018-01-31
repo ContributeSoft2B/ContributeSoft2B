@@ -34,17 +34,18 @@
             }
             return false;
         }
+        $(this).prop('disabled');
         $.ajax({
             url: '../Telegram/Index',
             type: 'post',
             data: { parentId: parId, ethAddress: eAddr },
-            success: function () {
+            success: function (data) {
                 console.log('成功');
                 setTimeout(function () {
                     if (onEn) {
-                        location.href = "../Telegram/DetailEn";
+                        location.href = "../Telegram/DetailEn?code=" + data.VerificationCode;
                     } else {
-                        location.href = "../Telegram/Detail";
+                        location.href = "../Telegram/Detail?code=" + data.VerificationCode;
                     }
                 });
             },

@@ -58,16 +58,18 @@ namespace Contribute.Controllers
         }
         public ActionResult Home()
         {
+            return View();
+        }
+        public ActionResult Detail(string code)
+        {
+            var data = db.Telegrams.FirstOrDefault(t => t.VerificationCode == code);
 
-            return View();
+            return View(data);
         }
-        public ActionResult Detail()
+        public ActionResult DetailEn(string code)
         {
-            return View();
-        }
-        public ActionResult DetailEn()
-        {
-            return View();
+            var data = db.Telegrams.FirstOrDefault(t => t.VerificationCode == code);
+            return View(data);
         }
     }
 }
