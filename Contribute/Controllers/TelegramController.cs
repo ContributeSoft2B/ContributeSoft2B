@@ -1,10 +1,10 @@
-﻿using ContributeComponents.Repositories.Ef;
+﻿using ContributeComponents.Domains;
+using ContributeComponents.Repositories.Ef;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ContributeComponents.Domains;
 
 namespace Contribute.Controllers
 {
@@ -12,7 +12,8 @@ namespace Contribute.Controllers
     {
         private ContributeDbContext db = new ContributeDbContext();
         // GET: Telegram
-        public ActionResult Index(string ethAddress, int parentId = 0)
+        [HttpPost]
+        public JsonResult Index(string ethAddress, int parentId = 0)
         {
             var telegram = new Telegrams
             {
@@ -28,7 +29,7 @@ namespace Contribute.Controllers
             var data = db.Telegrams.FirstOrDefault(t => t.EthAddress == ethAddress);
             data.InviteUrl = $"http://www.soft2b.com/telegram/invite?parentId= {data.Id}";
             db.SaveChanges();
-            return Json(new { success = true, data.InviteUrl, data.VerificationCode,msg="注册成功！~" }, JsonRequestBehavior.AllowGet);
+            return Json(new { success = true, data.InviteUrl, data.VerificationCode,msg="注册成功！~" });
         }
         /// <summary>
         /// 验证码是否存在，如果存在，和ETH地址绑定
@@ -49,16 +50,11 @@ namespace Contribute.Controllers
 
         }
         // GET: TMe
-        public ActionResult Index(string lang)
+        public ActionResult Index(int parentId=0 )
         {
-            if (lang == "en")
-            {
-                return RedirectToAction("Home");
-            }
-            else
-            {
-                return View();
-            }
+            ViewBag.ParentId = parentId;
+            return View();
+            
         }
         public ActionResult Home()
         {

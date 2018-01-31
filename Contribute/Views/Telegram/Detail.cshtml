@@ -34,30 +34,5 @@
 </div>
 
 @section Scripts {
-<script>
-$(function () {
-    $('a.btn-copy').on('click', function (e) {
-        var copy_ele = $(this).siblings('span')[0];
-        copyToClipboard(e, 'Hello, world!', copy_ele);
-    });
-    function copyToClipboard(e, txt, copy_ele) {
-        var clipboardData = window.clipboardData || e.clipboardData;
-        
-        if (clipboardData) {
-            clipboardData.clearData();
-            clipboardData.setData("text/plain",txt);
-        } else if (document.execCommand) {
-            var range = document.createRange();
-            range.selectNode(copy_ele);
-
-            var selection = window.getSelection();
-            if (selection.rangeCount > 0) selection.removeAllRanges();
-            selection.addRange(range);
-            document.execCommand('copy');
-        } else {
-            alert('您的浏览器不支持此方法，请手动复制');
-        }
-    }
-});
-</script>
+<script src="~/Scripts/telegram.js"></script>
 }
