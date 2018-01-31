@@ -12,5 +12,6 @@ namespace ContributeComponents.Repositories.Ef
     {
         public DbSet<Applications> Applications { get; set; }
         public DbSet<KycInfos> KycInfos { get; set; }
+        public DbSet<Telegrams> Telegrams { get; set; }
     }
 }

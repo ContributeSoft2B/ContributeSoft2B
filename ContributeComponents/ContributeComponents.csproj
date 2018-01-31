@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Domains\Applications.cs" />
     <Compile Include="Domains\KycInfos.cs" />
+    <Compile Include="Domains\Telegrams.cs" />
     <Compile Include="Helper\CryptoHelper.cs" />
     <Compile Include="Helper\Utils.cs" />
     <Compile Include="Migrations\201801030916260_InitialCreate.cs" />
