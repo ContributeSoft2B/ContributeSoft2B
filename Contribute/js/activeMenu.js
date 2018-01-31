@@ -12,7 +12,6 @@ $(function($) {
     var navml;
     var lang = $('input.lang').val();
     if (lang == "EN") {
-        console.log('en');
         navml = ' <li><a href="/">Home</a></li>\
                 <li><a href="/STBChain-'+ lang + '.pdf" target="_blank">WhitePaper</a></li>\
                 <li><a href="/#team_member">Team</a></li>\

@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_TelegramLayout.cshtml";
+}
+
+<div class="row title--right"><div class="col-xs-12 text-right"><a href="./Detail" class="langchange">中文</a></div></div>
+<div class="row">
+    <div class="col-md-12 logo-wrap">
+        <div class="logo-cont"><img src="~/images/token-logo.png" class="logo" />STB</div>
+        <strong class="slogen">Global Software Asset First Chain</strong>
+    </div>
+
+    <div class="col-md-12 sometxt">1. Click to join the STB Telegram group. After the event, we will verify STB offical telegram group, only the effective members in the group will finally get the rewards.</div>
+    <div class="col-md-12 text--centered"><a href="https://t.me/soft2b" target="_blank" class="btn btn-alt join-tme">Global Software Asset First Chain</a></div>
+    <div class="col-md-12 sometxt">2. [Importan!] Copy and send the following referral code to the STB group in Telegram</div>
+    <div class="code-group">
+        /code&ensp;
+        <span class="copy-t">fG2N9wWOhdal</span>
+        <a href="javascript:;" class="btn-copy">COPY</a>
+    </div>
+    <div class="col-md-12 sometxt">3. Share the following link to your friends, each successful recommendation to join this group can get more 2 STB!</div>
+    <div class="code-group">
+        <span class="copy-t">https://www.gsc.social/airdrop/?cod</span>
+        <a href="javascript:;" class="btn-copy">COPY</a>
+    </div>
+</div>
+<div class="row statistics text--centered">
+    <div class="col-xs-6">
+        <div class="cont">Invited<span>0</span></div>
+    </div>
+    <div class="col-xs-6">
+        <div class="cont">Earned STB<span>5</span></div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+$(function () {
+    $('a.btn-copy').on('click', function (e) {
+        var copy_ele = $(this).siblings('span')[0];
+        copyToClipboard(e, 'Hello, world!', copy_ele);
+    });
+    function copyToClipboard(e, txt, copy_ele) {
+        var clipboardData = window.clipboardData || e.clipboardData;
+
+        if (clipboardData) {
+            clipboardData.clearData();
+            clipboardData.setData("text/plain",txt);
+        } else if (document.execCommand) {
+            var range = document.createRange();
+            range.selectNode(copy_ele);
+
+            var selection = window.getSelection();
+            if (selection.rangeCount > 0) selection.removeAllRanges();
+            selection.addRange(range);
+            document.execCommand('copy');
+        } else {
+            alert('failed');
+        }
+    }
+});
+</script>
+}

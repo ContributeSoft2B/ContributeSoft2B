@@ -160,6 +160,7 @@
     <Compile Include="Controllers\ApplicationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KycInfosController.cs" />
+    <Compile Include="Controllers\TelegramController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -652,6 +653,11 @@
     <Content Include="Views\KycInfos\Details.cshtml" />
     <Content Include="Views\KycInfos\Edit.cshtml" />
     <Content Include="Views\KycInfos\Index.cshtml" />
+    <Content Include="Views\Shared\_TelegramLayout.cshtml" />
+    <Content Include="Views\Telegram\Index.cshtml" />
+    <Content Include="Views\Telegram\Detail.cshtml" />
+    <Content Include="Views\Telegram\Home.cshtml" />
+    <Content Include="Views\Telegram\DetailEn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
