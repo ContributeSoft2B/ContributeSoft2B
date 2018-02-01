@@ -48,6 +48,20 @@ namespace Contribute.Controllers
 
             var message = update.Message;
             string url = string.Empty;
+            string userName = "";
+            if (string.IsNullOrEmpty(message.From.Username))
+            {
+
+                //await Bot.Api.SendTextMessageAsync(message.Chat.Id, $"message.From.Id:{message.From.Id}");
+                userName = $"{message.From.FirstName} {message.From.LastName}";
+            }
+            else
+            {
+                //await Bot.Api.SendTextMessageAsync(message.Chat.Id, $"UserName:{message.From.Username}");
+                userName = message.From.Username;
+               // await Bot.Api.SendTextMessageAsync(message.Chat.Id, Json(new { message.From.FirstName, message.From.LastName, message.From.LanguageCode, message.From.IsBot, message.From.Id }).Data.ToString()); 
+            }
+
             if (message.Type == MessageType.TextMessage && message.Text.StartsWith("/code"))
             {
                 url = $"https://www.soft2b.com/telegram/Verification?verificationCode= {message.Text}";
@@ -61,11 +75,13 @@ namespace Contribute.Controllers
                     result = JsonConvert.DeserializeAnonymousType(resultJson, result);
                     if (result.Success == true)
                     {
-                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, "@" + message.From.Username + "\n" + result.Msg);
+                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, "@" +
+                        userName
+                        + "\n" + result.Msg);
                     }
                     else
                     {
-                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, "@" + message.From.Username + "\n" + result.Msg);
+                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, "@" + userName + "\n" + result.Msg);
                     }
 
                 }
@@ -90,11 +106,11 @@ namespace Contribute.Controllers
                     if (result.Success == true)
                     {
                         await Bot.Api.SendTextMessageAsync(message.Chat.Id,
-                          "@"+message.From.Username + "\n" + result.Msg + "\n" + $"邀请链接：{result.InviteUrl}" + "\n" + $"验证码：{result.VerificationCode}");
+                          "@" + userName + "\n" + result.Msg + "\n" + $"邀请链接：{result.InviteUrl}" + "\n" + $"验证码：{result.VerificationCode}");
                     }
                     else
                     {
-                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, "@" + message.From.Username + "\n" + result.Msg);
+                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, "@" + userName + "\n" + result.Msg);
                     }
 
                 }
