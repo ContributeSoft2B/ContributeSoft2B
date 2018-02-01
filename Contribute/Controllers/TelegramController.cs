@@ -14,7 +14,11 @@ namespace Contribute.Controllers
         // GET: Telegram
         [HttpPost]
         public JsonResult Index(string ethAddress, int parentId = 0)
-        {
+        {  var selectEthAddress = db.Telegrams.FirstOrDefault(t => t.EthAddress == ethAddress);
+            if (selectEthAddress!=null)
+            {
+                return Json(new { success = false, msg = "钱包地址已存在！" });
+            }
             var telegram = new Telegrams
             {
                 EthAddress = ethAddress,
@@ -27,7 +31,7 @@ namespace Contribute.Controllers
             db.Telegrams.Add(telegram);
             db.SaveChanges();
             var data = db.Telegrams.FirstOrDefault(t => t.EthAddress == ethAddress);
-            data.InviteUrl = $"http://www.soft2b.com/telegram/invite?parentId= {data.Id}";
+            data.InviteUrl = $"http://www.soft2b.com/telegram/index?parentId={data.Id}";
             db.SaveChanges();
             return Json(new { success = true, data.InviteUrl, data.VerificationCode,msg="注册成功！~" });
         }

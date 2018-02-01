@@ -94,7 +94,7 @@ namespace Contribute.Controllers
                     }
                     else
                     {
-                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, "@" + message.From.Username + "\n" + "注册失败");
+                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, "@" + message.From.Username + "\n" + result.Msg);
                     }
 
                 }
