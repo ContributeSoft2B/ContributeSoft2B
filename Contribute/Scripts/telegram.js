@@ -30,14 +30,12 @@
         var eAddr = $('.e-addr input').val();
         var onEn = $(this).val() == "Submit";
         if (!eAddr) {
-            if (!onEn) {
-                alert('请输入你的ETH钱包地址');
-            } else {
-                alert('Please enter your ETH wallet address');
-            }
+            $('.pop-tip').show();
+            $('p.tip-txt').text(onEn ? 'Please enter your ETH wallet address':'请输入你的ETH钱包地址');
             return false;
-        } else if (eAddr.substr(0,2) != "0x"){
-            alert('请输入正确的地址');
+        } else if (eAddr.substr(0, 2) != "0x") {
+            $('.pop-tip').show();
+            $('p.tip-txt').text(onEn ? 'Please enter the correct address' : '请输入正确的地址');
             return false;
         }
         
@@ -47,11 +45,11 @@
             type: 'post',
             data: { parentId: parId, ethAddress: eAddr },
             success: function (data) {
-                console.log('成功');
                 $('.pop-tip').show();
                 if (data.success == false) {
+                    $('.pop-tip p').html(onEn ?"<strong>The address has been registered</strong>":"<strong>该地址已注册</strong>将为您查询该地址相关信息");
                 } else {
-                    $('.pop-tip p').text("注册成功");
+                    $('.pop-tip p').text(onEn ?"Success":"注册成功");
                 }
                 setTimeout(function () {
                     if (onEn) {
@@ -63,7 +61,7 @@
             },
             error: function () {
                 console.log('失败');
-                $('.pop-tip').show().find('p').text("注册失败，请重试");
+                $('.pop-tip').show().find('p').text("注册失败，请重试!");
                 setTimeout(function () {
                     $('.pop-tip').hide();
                 },2000);
