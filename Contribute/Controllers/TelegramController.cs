@@ -17,7 +17,7 @@ namespace Contribute.Controllers
         {  var selectEthAddress = db.Telegrams.FirstOrDefault(t => t.EthAddress == ethAddress);
             if (selectEthAddress!=null)
             {
-                return Json(new { success = false, msg = "钱包地址已存在！" });
+                return Json(new { success = false, selectEthAddress.InviteUrl, selectEthAddress.VerificationCode, msg = "钱包地址已存在！" });
             }
             var telegram = new Telegrams
             {
