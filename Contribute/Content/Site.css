@@ -56,6 +56,8 @@ background: #111;
 .sub-btn.disabled{pointer-events:auto !important;cursor:default;}
 
 /*-----telegram-----*/
+.modal {position: fixed;top: 0;right: 0;bottom: 0;left: 0;z-index: 10;display: none;overflow: hidden;-webkit-overflow-scrolling: touch;outline: 0;padding:0 2rem;background:rgba(0,0,0,0.5)}
+.close {float: right;font-size: 21px;font-weight: 700;line-height: 1;color: #000;text-shadow: 0 1px 0 #fff;filter: alpha(opacity=20);opacity: .2;}
 input::-webkit-input-placeholder {color:#999;}
 input:-moz-placeholder {color:#999;}
 input::-moz-placeholder {color:#999;}
@@ -78,6 +80,10 @@ input:-ms-input-placeholder {color:#999;}
 .tele-wrap .e-address .inp{border-radius:1.7rem;background-color:#444b51;border:none;color:#fff;}
 .tele-wrap .e-sub{padding-top:1rem;}
 .tele-wrap .e-sub .btn-sub{border-radius:1.7rem;display:block;width:100%;}
+.pop-tip{text-align:center;}
+.alert{color: #000;background:#fff;border-color: #faebcc;padding:15px;position:relative;top:50%;border-radius:4px;transform:translateY(-50%);}
+.alert-tip{display:inline-block;min-width:44%;}
+.tele-wrap .alert-warning {background-color:#fcf8e3;color:#8a6d3b;}
 /*detail*/
 .tele-wrap .code-group{background-color:#42484e;height:3rem;line-height:3rem;clear:both;overflow:hidden;border-radius:1.6rem;padding-left:1rem;white-space:nowrap;position:relative;}
 .tele-wrap .code-group a{position:absolute;right:0;top:0;text-decoration:none;padding:0 1rem;color:#fff;background-color:#f8b62b;}
