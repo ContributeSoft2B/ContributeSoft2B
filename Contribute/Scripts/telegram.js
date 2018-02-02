@@ -1,10 +1,11 @@
 ﻿$(function () {
     $('a.btn-copy').on('click', function (e) {
-        var copy_ele = $(this).siblings('span')[0];
-        copyToClipboard(e, 'Hello, world!', copy_ele);
+        var copy_ele = $(this).siblings('span.copy-txt')[0];
+        copyToClipboard(e, copy_ele);
     });
-    function copyToClipboard(e, txt, copy_ele) {
+    function copyToClipboard(e, copy_ele) {
         var clipboardData = window.clipboardData || e.clipboardData;
+        var txt = $(copy_ele).text();
         $('.pop-tip').show();
         if (clipboardData) {
             clipboardData.clearData();
@@ -18,7 +19,7 @@
             selection.addRange(range);
             document.execCommand('copy');
         } else {
-            //$('p.tip-txt').text('复制失败，请手动');
+            //$('p.tip-txt').text('复制失败');
         }
         setTimeout(function () {
             $('.pop-tip').hide();
@@ -26,6 +27,7 @@
     }
 
     $('input.btn-sub').on('click', function () {
+        var $this = $(this);
         var parId = $('input.parId').val();
         var eAddr = $('.e-addr input').val();
         var onEn = $(this).val() == "Submit";
@@ -39,7 +41,7 @@
             return false;
         }
         
-        $(this).prop('disabled');
+        $(this).prop('disabled','true');
         $.ajax({
             url: '../Telegram/Index',
             type: 'post',
@@ -47,9 +49,9 @@
             success: function (data) {
                 $('.pop-tip').show();
                 if (data.success == false) {
-                    $('.pop-tip p').html(onEn ?"<strong>The address has been registered</strong>":"<strong>该地址已注册</strong>将为您查询该地址相关信息");
+                    //$('.pop-tip p').html(onEn ?"<strong>The address has been registered</strong>":"<strong>该地址已注册</strong>将为您查询该地址相关信息");
                 } else {
-                    $('.pop-tip p').text(onEn ?"Success":"注册成功");
+                    //$('.pop-tip p').text(onEn ?"Success":"注册成功");
                 }
                 setTimeout(function () {
                     if (onEn) {
@@ -64,10 +66,11 @@
                 $('.pop-tip').show().find('p').text("注册失败，请重试!");
                 setTimeout(function () {
                     $('.pop-tip').hide();
-                },2000);
+                }, 2000);
+                $this.removeProp('disabled');
             }
         });
-        //return false;
+        return false;
     });
     $('.modal').on('click', function () {
         $(this).hide();
