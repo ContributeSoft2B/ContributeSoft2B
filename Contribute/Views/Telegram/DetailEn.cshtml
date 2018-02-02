@@ -32,13 +32,12 @@
 </div>
 <div class="row statistics text--centered">
     <div class="col-xs-6">
-        <div class="cont">Invited<span>0</span></div>
+        <div class="cont">Invited<span>@ViewBag.TotalInviteCount</span></div>
     </div>
     <div class="col-xs-6">
-        <div class="cont">Earned STB<span>5</span></div>
+        <div class="cont">Earned STB<span>@ViewBag.GetStbCount</span></div>
     </div>
 </div>
-
 @section Scripts {
     <script src="~/Scripts/telegram.js"></script>
 }

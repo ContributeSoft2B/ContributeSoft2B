@@ -65,7 +65,6 @@ namespace Contribute.Controllers
             if (message.Type == MessageType.TextMessage && message.Text.StartsWith("/code"))
             {
                 url = $"https://www.soft2b.com/telegram/Verification?verificationCode= {message.Text}";
-
                 // Echo each Message
                 using (WebClient client = new WebClient())
                 {

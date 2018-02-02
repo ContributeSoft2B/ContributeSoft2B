@@ -48,6 +48,10 @@ namespace Contribute.Controllers
             {
                 return Json(new { success = false, msg = $"验证码：{verificationCode}无效，可能的原因如下：\n 1.错误的验证码 \n 2.该验证码好像已经被别人用过 \n 3.您跑错场了" },JsonRequestBehavior.AllowGet);
             }
+            if (data.BindTime.HasValue)
+            {
+                return Json(new { success = false, msg = $"验证码：{verificationCode}已验证，不可重复验证" }, JsonRequestBehavior.AllowGet);
+            }
             data.BindTime=DateTime.UtcNow;
             db.SaveChanges();
             return Json(new { success = true, msg = $"收到验证码:{verificationCode},恭喜你验证成功，赶快把邀请链接分享给好友，活动期间每成功推荐一个好友入群，即可获得2个STB!", data.InviteUrl }, JsonRequestBehavior.AllowGet);
@@ -67,12 +71,17 @@ namespace Contribute.Controllers
         public ActionResult Detail(string code)
         {
             var data = db.Telegrams.FirstOrDefault(t => t.VerificationCode == code);
-
+            var list = db.Telegrams.Where(t => t.ParentId == data.Id&&t.BindTime.HasValue).ToList();
+            ViewBag.TotalInviteCount = list.Count;
+            ViewBag.GetStbCount = list.Count * 2;
             return View(data);
         }
         public ActionResult DetailEn(string code)
         {
             var data = db.Telegrams.FirstOrDefault(t => t.VerificationCode == code);
+            var list = db.Telegrams.Where(t => t.ParentId == data.Id&& t.BindTime.HasValue).ToList();
+            ViewBag.TotalInviteCount = list.Count;
+            ViewBag.GetStbCount = list.Count * 2;
             return View(data);
         }
     }
