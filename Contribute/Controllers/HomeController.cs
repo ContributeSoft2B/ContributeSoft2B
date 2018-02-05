@@ -12,15 +12,42 @@ using Newtonsoft.Json;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
+using System.Net.Mail;
+using System.Threading;
 
 namespace Contribute.Controllers
 {
     public static class Bot
     {
-        public static readonly TelegramBotClient Api = new TelegramBotClient("397035878:AAFKtZ_Ox1njEn6dtuAY0PQIB8nsJodCzjc");
+        public static readonly TelegramBotClient Api = new TelegramBotClient("530668677:AAHpIVXymmZixn4Y87Fz0N1PlQ8l5JGAfho");
     }
     public class HomeController : Controller
     {
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            string error = Utils.GetRandomString("0123456789", 6);
+            Session["errorcode"] = error;
+            var context = filterContext.HttpContext;
+            string data = "";
+            if (context.Request.Form != null && context.Request.Form.Count > 0)
+            {
+                data = JsonConvert.SerializeObject(context.Request.Form);
+            }
+            string msg = String.Format(@"{0}
+URL:{1}
+REFER:{2}
+USER:{3}max_connections
+DATA:{4}
+{5}", error,
+                context.Request.Url.ToString(),
+                context.Request.UrlReferrer != null ? filterContext.HttpContext.Request.UrlReferrer.ToString() : "NULL",
+                context.User.Identity.IsAuthenticated ? context.User.Identity.Name : "NOT AUTH",
+                data,
+                Utils.ExceptionToString(filterContext.Exception));
+            //发送错误日志Email
+            Utils.SendErrorLogEmail(context, error, msg);
+            base.OnException(filterContext);
+        }
         public ActionResult Index()
         {
             return Redirect("/index.html");
@@ -51,17 +78,13 @@ namespace Contribute.Controllers
             string userName = "";
             if (string.IsNullOrEmpty(message.From.Username))
             {
-
-                //await Bot.Api.SendTextMessageAsync(message.Chat.Id, $"message.From.Id:{message.From.Id}");
                 userName = $"{message.From.FirstName} {message.From.LastName}";
             }
             else
             {
-                //await Bot.Api.SendTextMessageAsync(message.Chat.Id, $"UserName:{message.From.Username}");
                 userName = message.From.Username;
-               // await Bot.Api.SendTextMessageAsync(message.Chat.Id, Json(new { message.From.FirstName, message.From.LastName, message.From.LanguageCode, message.From.IsBot, message.From.Id }).Data.ToString()); 
             }
-
+            Thread.Sleep(3000);
             if (message.Type == MessageType.TextMessage && message.Text.StartsWith("/code"))
             {
                 url = $"https://www.soft2b.com/telegram/Verification?verificationCode= {message.Text}";
@@ -75,8 +98,8 @@ namespace Contribute.Controllers
                     if (result.Success == true)
                     {
                         await Bot.Api.SendTextMessageAsync(message.Chat.Id, "@" +
-                        userName
-                        + "\n" + result.Msg);
+                                                                            userName
+                                                                            + "\n" + result.Msg);
                     }
                     else
                     {
@@ -105,7 +128,7 @@ namespace Contribute.Controllers
                     if (result.Success == true)
                     {
                         await Bot.Api.SendTextMessageAsync(message.Chat.Id,
-                          "@" + userName + "\n" + result.Msg + "\n" + $"邀请链接：{result.InviteUrl}" + "\n" + $"验证码：{result.VerificationCode}");
+                            "@" + userName + "\n" + result.Msg + "\n" + $"邀请链接：{result.InviteUrl}" + "\n" + $"验证码：{result.VerificationCode}");
                     }
                     else
                     {
