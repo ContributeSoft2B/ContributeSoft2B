@@ -2571,7 +2571,7 @@ animation: raround 16s linear 6s infinite normal;
 .team-member li{width:25%;float: left;padding:0 1em 1em;text-align: center;}
 .team-member li span{background-repeat:no-repeat;background-size:cover;background-position:center center;display:inline-block;width:130px;height:130px;margin:0 auto;border-radius:50%;overflow:hidden;position:relative;}
 .team-member li span:after{content:;position: absolute;left:0;top:0;width:100%;height:100%;background-color: #fff;z-index: 0;}
-.team-member li .name{font-weight:bolder;white-space:nowrap;}
+.team-member li .name{font-weight:bolder;white-space:nowrap;overflow:hidden;}
 .team-member .member1{background-image:url(../images/tperson/01.png);}
 .team-member .member2{background-image:url(../images/tperson/02.png);}
 .team-member .member3{background-image:url(../images/tperson/03.png);}
@@ -2582,7 +2582,7 @@ animation: raround 16s linear 6s infinite normal;
 .team-member .member8{background-image:url(../images/tperson/08.png);}
 .team-member .member9{background-image:url(../images/tperson/9.jpg);}
 .team-member p{padding-bottom: 0.6em;margin: 0;}
-.team-member p.title{white-space:nowrap;}
+.team-member p.title{white-space:nowrap;overflow: hidden;}
 .team-member .pintro{font-size:14px;line-height:1.4;}
 
 #board_advisor{background-color: #f5f5f5;}
@@ -2591,7 +2591,7 @@ animation: raround 16s linear 6s infinite normal;
 .board-advise ul li span{background-color: #fff;}
 .board-advise-title{padding-top:120px;color:#333333;text-align:center;font-size:24px;line-height:1;}
 .board-advise-title-decoration{display:block;width:40px;height:2px;background-color:#5785eb;margin:22px auto 30px;}
-.board-advise ul li .title{color:#999999;font-size:12px;line-height:1.6;height:72px;overflow: hidden;}
+.board-advise ul li .title{color:#999999;font-size:12px;line-height:1.6;height:72px;white-space:normal;}
 .team-member .person1{background-image:url(../images/tperson/001.png);}
 .team-member .person2{background-image:url(../images/tperson/002.png);}
 .team-member .person3{background-image:url(../images/tperson/003.png);}
