@@ -15,12 +15,13 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using System.Net.Mail;
 using System.Threading;
+using System.IO;
 
 namespace Contribute.Controllers
-{   
+{
     public static class Bot
     {
-      
+
         public static readonly TelegramBotClient Api = new TelegramBotClient(ConfigurationManager.AppSettings["token"]);
     }
     public class HomeController : Controller
@@ -72,10 +73,14 @@ DATA:{4}
         {
             return View();
         }
-        public async Task<ActionResult> Telegram(Update update)
+        [HttpPost]
+        public async Task<ActionResult> Post(Update update)
         {
-            string name = Request.Form["update"];
-            var message = update.Message;
+            var req = Request.InputStream;
+            req.Seek(0, SeekOrigin.Begin);
+            string json = new StreamReader(req).ReadToEnd();
+            var updates = JsonConvert.DeserializeObject<Update>(json);
+            var message = updates.Message;
             string url = string.Empty;
             string userName = "";
             if (string.IsNullOrEmpty(message.From.Username))
@@ -87,6 +92,16 @@ DATA:{4}
                 userName = message.From.Username;
             }
             Thread.Sleep(3000);
+            if (message.Type == MessageType.TextMessage && message.Text.StartsWith("/test"))
+            {
+                //Stream s = Request.InputStream;
+                //byte[] b = new byte[s.Length];
+                //s.Read(b, 0, (int)s.Length);
+                //string postStr = Encoding.UTF8.GetString(b);
+
+
+                await Bot.Api.SendTextMessageAsync(message.Chat.Id, $"MessageId:{message.MessageId}", ParseMode.Default, false, false, message.MessageId);
+            }
             if (message.Type == MessageType.TextMessage && message.Text.StartsWith("/code"))
             {
                 url = $"https://www.soft2b.com/telegram/Verification?verificationCode= {message.Text}";
@@ -99,13 +114,11 @@ DATA:{4}
                     result = JsonConvert.DeserializeAnonymousType(resultJson, result);
                     if (result.Success == true)
                     {
-                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, "@" +
-                                                                            userName
-                                                                            + "\n" + result.Msg);
+                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg, ParseMode.Default, false, false, message.MessageId);
                     }
                     else
                     {
-                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, "@" + userName + "\n" + result.Msg);
+                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg, ParseMode.Default, false, false, message.MessageId);
                     }
 
                 }
@@ -129,12 +142,11 @@ DATA:{4}
                     result = JsonConvert.DeserializeAnonymousType(resultJson, result);
                     if (result.Success == true)
                     {
-                        await Bot.Api.SendTextMessageAsync(message.Chat.Id,
-                            "@" + userName + "\n" + result.Msg + "\n" + $"邀请链接：{result.InviteUrl}" + "\n" + $"验证码：{result.VerificationCode}");
+                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg + "\n" + $"邀请链接：{result.InviteUrl}" + "\n" + $"验证码：{result.VerificationCode}", ParseMode.Default, false, false, message.MessageId);
                     }
                     else
                     {
-                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, "@" + userName + "\n" + result.Msg);
+                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg);
                     }
 
                 }
