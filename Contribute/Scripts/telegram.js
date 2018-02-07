@@ -30,7 +30,8 @@
         var $this = $(this);
         var parId = $('input.parId').val();
         var eAddr = $('.e-addr input').val();
-        var onEn = $(this).val() == "Submit";
+        var onEn = $(this).val() != "提交";
+        var pageLang = $(this).val();
         if (!eAddr) {
             $('.pop-tip').show();
             $('p.tip-txt').text(onEn ? 'Please enter your ETH wallet address':'请输入你的ETH钱包地址');
@@ -54,6 +55,10 @@
                     //$('.pop-tip p').text(onEn ?"Success":"注册成功");
                 }
                 setTimeout(function () {
+                    if (pageLang == "제출") {
+                        location.href = "../Telegram/DetailKP?code=" + data.VerificationCode;
+                        return false;
+                    }
                     if (onEn) {
                         location.href = "../Telegram/DetailEn?code=" + data.VerificationCode;
                     } else {
@@ -63,7 +68,7 @@
             },
             error: function () {
                 console.log('失败');
-                $('.pop-tip').show().find('p').text("注册失败，请重试!");
+                $('.pop-tip').show().find('p').text("failed!");
                 setTimeout(function () {
                     $('.pop-tip').hide();
                 }, 2000);

@@ -662,6 +662,8 @@
     <Content Include="Views\Telegram\Detail.cshtml" />
     <Content Include="Views\Telegram\Home.cshtml" />
     <Content Include="Views\Telegram\DetailEn.cshtml" />
+    <Content Include="Views\Telegram\IndexKP.cshtml" />
+    <Content Include="Views\Telegram\DetailKP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

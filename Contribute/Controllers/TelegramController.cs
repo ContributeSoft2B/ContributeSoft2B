@@ -64,8 +64,14 @@ namespace Contribute.Controllers
             return View();
             
         }
-        public ActionResult Home()
+        public ActionResult Home(int parentId = 0)
         {
+            ViewBag.ParentId = parentId;
+            return View();
+        }
+        public ActionResult IndexKP(int parentId = 0) {
+
+            ViewBag.ParentId = parentId;
             return View();
         }
         public ActionResult Detail(string code)
@@ -80,6 +86,14 @@ namespace Contribute.Controllers
         {
             var data = db.Telegrams.FirstOrDefault(t => t.VerificationCode == code);
             var list = db.Telegrams.Where(t => t.ParentId == data.Id&& t.BindTime.HasValue).ToList();
+            ViewBag.TotalInviteCount = list.Count;
+            ViewBag.GetStbCount = list.Count * 2;
+            return View(data);
+        }
+        public ActionResult DetailKP(string code)
+        {
+            var data = db.Telegrams.FirstOrDefault(t => t.VerificationCode == code);
+            var list = db.Telegrams.Where(t => t.ParentId == data.Id && t.BindTime.HasValue).ToList();
             ViewBag.TotalInviteCount = list.Count;
             ViewBag.GetStbCount = list.Count * 2;
             return View(data);
