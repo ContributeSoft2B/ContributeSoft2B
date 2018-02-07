@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -16,10 +17,11 @@ using System.Net.Mail;
 using System.Threading;
 
 namespace Contribute.Controllers
-{
+{   
     public static class Bot
     {
-        public static readonly TelegramBotClient Api = new TelegramBotClient("530668677:AAHpIVXymmZixn4Y87Fz0N1PlQ8l5JGAfho");
+      
+        public static readonly TelegramBotClient Api = new TelegramBotClient(ConfigurationManager.AppSettings["token"]);
     }
     public class HomeController : Controller
     {
@@ -72,7 +74,7 @@ DATA:{4}
         }
         public async Task<ActionResult> Telegram(Update update)
         {
-
+            string name = Request.Form["update"];
             var message = update.Message;
             string url = string.Empty;
             string userName = "";
