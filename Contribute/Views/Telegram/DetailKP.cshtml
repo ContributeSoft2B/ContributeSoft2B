@@ -1,0 +1,45 @@
+﻿@model ContributeComponents.Domains.Telegrams
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_TelegramLayout.cshtml";
+}
+
+<div class="row title--right"><div class="col-xs-12 text-right"><a href="./DetailEn?code=@Model.VerificationCode" class="langchange"></a></div></div>
+<div class="row">
+    <div class="col-md-12 logo-wrap">
+        <div class="logo-cont"><img src="~/images/token-logo.png" class="logo" />STB</div>
+        <strong class="slogen">소프트웨어 배포를 더 자유롭게 만듭니다</strong>
+    </div>
+
+    <div class="col-md-12 sometxt">1.아래 단추를 클릭하여 STB 전보 그룹에 가입하십시오. 이벤트가 끝나면 전신 그룹을 확인하고 그룹에 아직 남아있는 유효한 사용자에게만 보상이 주어집니다.</div>
+    <div class="col-md-12 text--centered"><a href="https://t.me/joinchat/Hu3BJw-_Ke6lFDBYyRRylQ" target="_blank" class="btn btn-alt join-tme">STB 한국 전보 그룹 가입</a></div>
+    <div class="col-md-12 sometxt">2. 다음 인증 코드를 복사하여 STB 전문 그룹에 붙여 넣습니다 (필수).</div>
+    <div class="code-group">
+        <span class="copy-txt">@Model.VerificationCode</span>
+        <a href="javascript:;" class="btn-copy">복사</a>
+    </div>
+    <div class="col-md-12 sometxt">3. 다음 링크를 친구에게 공유하십시오. 각 친구는 성공적인 친구 그룹을 추천합니다. 2 STB를받을 수 있습니다!</div>
+    <div class="code-group">
+        <span class="copy-url">@Model.InviteUrl</span>
+        <span class="copy-txt hidden-xs">세계 최초의 소프트웨어 체인인 STB CHAIN은 전보 그룹에 가입하여 사탕 1 방울을 열고 5 명의 STB를 얻습니다. 초대장이 많을수록 보상이 많아지고 열차에 더 빨리 도착합니다.&ensp;@Model.InviteUrl</span>
+        <a href="javascript:;" class="btn-copy">복사</a>
+    </div>
+</div>
+
+<div class="modal fade pop-tip" tabindex="-1" role="dialog">
+    <div class="alert alert-tip alert-dismissible" tabindex="-1">
+        <p class="tip-txt">copied</p>
+    </div>
+</div>
+<div class="row statistics text--centered">
+    <div class="col-xs-6">
+        <div class="cont">성공적인 초대장 수<span>@ViewBag.TotalInviteCount</span></div>
+    </div>
+    <div class="col-xs-6">
+        <div class="cont">STB 획득<span>@(ViewBag.GetStbCount + 5)</span></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/telegram.js"></script>
+}
