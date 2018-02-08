@@ -33,8 +33,18 @@ namespace ContributeComponents.Domains
         /// </summary>
         public DateTime? BindTime { get; set; }
         /// <summary>
+        /// 来自于国家
+        /// </summary>
+        public Country Country { get; set; }
+        /// <summary>
         /// 创建时间
         /// </summary>
         public DateTime CreateTime { get; set; }
+    }
+
+    public enum Country
+    {
+        Us,
+        Korea
     }
 }

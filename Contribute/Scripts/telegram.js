@@ -42,9 +42,16 @@
             return false;
         }
         
-        $(this).prop('disabled','true');
+        $(this).prop('disabled', 'true');
+        var url = "";
+        if (pageLang === "제출") {
+            url = '../Telegram/KoreaIndex';
+        } else {
+            url = '../Telegram/Index';
+        }
+       
         $.ajax({
-            url: '../Telegram/Index',
+            url: url,
             type: 'post',
             data: { parentId: parId, ethAddress: eAddr },
             success: function (data) {

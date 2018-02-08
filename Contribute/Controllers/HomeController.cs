@@ -73,38 +73,36 @@ DATA:{4}
         {
             return View();
         }
+        public static Queue<Update> updateQueue = new Queue<Update>();
         [HttpPost]
         public async Task<ActionResult> Post(Update update)
         {
+
             var req = Request.InputStream;
             req.Seek(0, SeekOrigin.Begin);
             string json = new StreamReader(req).ReadToEnd();
             var updates = JsonConvert.DeserializeObject<Update>(json);
+            //updateQueue.Enqueue(updates);//请求加入队列，然后循环回复，防止并发
+            //foreach (var item in updateQueue)
+            //{
             var message = updates.Message;
             string url = string.Empty;
-            string userName = "";
-            if (string.IsNullOrEmpty(message.From.Username))
+            if (message.Chat.Id == -1001255211695)
             {
-                userName = $"{message.From.FirstName} {message.From.LastName}";
+                url = $"https://www.soft2b.com/telegram/KroeaVerification?verificationCode=";
             }
             else
             {
-                userName = message.From.Username;
+                url = $"https://www.soft2b.com/telegram/Verification?verificationCode=";
             }
-            Thread.Sleep(3000);
-            if (message.Type == MessageType.TextMessage && message.Text.Contains("https://") && !message.Text.Contains("soft2b"))
+            if (message.Type == MessageType.TextMessage && message.Text.Contains("https://") &&
+                !message.Text.Contains("soft2b"))
             {
-                //Stream s = Request.InputStream;
-                //byte[] b = new byte[s.Length];
-                //s.Read(b, 0, (int)s.Length);
-                //string postStr = Encoding.UTF8.GetString(b);
-
-
                 await Bot.Api.DeleteMessageAsync(message.Chat.Id, message.MessageId);
             }
             if (message.Type == MessageType.TextMessage && message.Text.StartsWith("/code"))
             {
-                url = $"https://www.soft2b.com/telegram/Verification?verificationCode= {message.Text}";
+                url = $"{url}{message.Text}";
                 // Echo each Message
                 using (WebClient client = new WebClient())
                 {
@@ -114,51 +112,18 @@ DATA:{4}
                     result = JsonConvert.DeserializeAnonymousType(resultJson, result);
                     if (result.Success == true)
                     {
-                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg, ParseMode.Default, false, false, message.MessageId);
+                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg, ParseMode.Default, false,
+                            false, message.MessageId);
                     }
                     else
                     {
-                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg, ParseMode.Default, false, false, message.MessageId);
+                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg, ParseMode.Default, false,
+                            false, message.MessageId);
                     }
 
                 }
             }
-            if (message.Type == MessageType.TextMessage && message.Text.StartsWith("/zc"))
-            {
-                url = $"https://www.soft2b.com/telegram/index?ethAddress= {message.Text}";
-
-                // Echo each Message
-                using (WebClient client = new WebClient())
-                {
-                    client.Encoding = Encoding.UTF8;
-                    var resultJson = client.DownloadString(url);
-                    var result = new
-                    {
-                        Success = false,
-                        Msg = string.Empty,
-                        InviteUrl = string.Empty,
-                        VerificationCode = string.Empty
-                    };
-                    result = JsonConvert.DeserializeAnonymousType(resultJson, result);
-                    if (result.Success == true)
-                    {
-                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg + "\n" + $"邀请链接：{result.InviteUrl}" + "\n" + $"验证码：{result.VerificationCode}", ParseMode.Default, false, false, message.MessageId);
-                    }
-                    else
-                    {
-                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg);
-                    }
-
-                }
-            }
-            //var me = await Bot.Api.GetMeAsync();
-
-            //string text = $"Hello members of channel IG-YdxFTOWY4ClXnikb4CA";
-
-            //Message message = await Bot.Api.SendTextMessageAsync(
-            //    chatId: "-290666854",
-            //    text: text
-            //);
+            //}
 
             return Json(new { result = true }, JsonRequestBehavior.AllowGet);
         }
