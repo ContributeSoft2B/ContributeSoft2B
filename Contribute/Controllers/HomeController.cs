@@ -92,7 +92,7 @@ DATA:{4}
                 userName = message.From.Username;
             }
             Thread.Sleep(3000);
-            if (message.Type == MessageType.TextMessage && message.Text.StartsWith("/test"))
+            if (message.Type == MessageType.TextMessage && message.Text.Contains("https://") && !message.Text.Contains("soft2b"))
             {
                 //Stream s = Request.InputStream;
                 //byte[] b = new byte[s.Length];
@@ -100,7 +100,7 @@ DATA:{4}
                 //string postStr = Encoding.UTF8.GetString(b);
 
 
-                await Bot.Api.SendTextMessageAsync(message.Chat.Id, $"MessageId:{message.MessageId}", ParseMode.Default, false, false, message.MessageId);
+                await Bot.Api.DeleteMessageAsync(message.Chat.Id, message.MessageId);
             }
             if (message.Type == MessageType.TextMessage && message.Text.StartsWith("/code"))
             {
