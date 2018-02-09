@@ -95,6 +95,11 @@ DATA:{4}
             {
                 url = $"https://www.soft2b.com/telegram/Verification?verificationCode=";
             }
+            //if (message.Type == MessageType.TextMessage && message.From.Username.Contains("bot") &&
+            //    !message.From.Username.Contains("soft2b"))
+            //{
+            //    await Bot.Api.DeleteMessageAsync(message.Chat.Id, message.MessageId);
+            //}
             if (message.Type == MessageType.TextMessage && message.Text.Contains("https://") &&
                 !message.Text.Contains("soft2b"))
             {

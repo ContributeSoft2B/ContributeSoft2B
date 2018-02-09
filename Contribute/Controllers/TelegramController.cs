@@ -93,7 +93,7 @@ namespace Contribute.Controllers
             }
             data.BindTime = DateTime.UtcNow;
             db.SaveChanges();
-            return Json(new { success = true, msg = $"收到验证码:{verificationCode},恭喜你验证成功，赶快把邀请链接分享给好友，活动期间每成功推荐一个好友入群，即可获得2个STB!", data.InviteUrl }, JsonRequestBehavior.AllowGet);
+            return Json(new { success = true, msg = $"收到验证码:{verificationCode},恭喜你验证成功，赶快把邀请链接分享给好友，每成功推荐一个好友入群，即可获得2个STB!", data.InviteUrl }, JsonRequestBehavior.AllowGet);
         }
         /// <summary>
         /// 验证码是否存在，如果存在，和ETH地址绑定（韩国)
