@@ -16,6 +16,7 @@ using Telegram.Bot.Types.Enums;
 using System.Net.Mail;
 using System.Threading;
 using System.IO;
+using log4net;
 
 namespace Contribute.Controllers
 {
@@ -26,6 +27,7 @@ namespace Contribute.Controllers
     }
     public class HomeController : Controller
     {
+        protected static ILog logger = LogManager.GetLogger(typeof(HomeController));
         protected override void OnException(ExceptionContext filterContext)
         {
             string error = Utils.GetRandomString("0123456789", 6);
@@ -47,17 +49,19 @@ DATA:{4}
                 context.User.Identity.IsAuthenticated ? context.User.Identity.Name : "NOT AUTH",
                 data,
                 Utils.ExceptionToString(filterContext.Exception));
-            //发送错误日志Email
-            Utils.SendErrorLogEmail(context, error, msg);
+            //记录错误日志Email
+            logger.Debug(msg);
             base.OnException(filterContext);
         }
         public ActionResult Index()
         {
+            logger.Debug("访问首页");
             return Redirect("/index.html");
         }
 
         public ActionResult About()
         {
+            logger.Debug("访问关于我们");
             ViewBag.Message = "Your application description page.";
 
             return View();
@@ -81,13 +85,14 @@ DATA:{4}
             var req = Request.InputStream;
             req.Seek(0, SeekOrigin.Begin);
             string json = new StreamReader(req).ReadToEnd();
+            logger.DebugFormat($"接收到的消息:{json}");
             var updates = JsonConvert.DeserializeObject<Update>(json);
             //updateQueue.Enqueue(updates);//请求加入队列，然后循环回复，防止并发
             //foreach (var item in updateQueue)
             //{
             var message = updates.Message;
             string url = string.Empty;
-            if (message.Chat.Id == -1001255211695)
+            if (message.Chat.Id == -1001221163930)
             {
                 url = $"https://www.soft2b.com/telegram/KroeaVerification?verificationCode=";
             }
