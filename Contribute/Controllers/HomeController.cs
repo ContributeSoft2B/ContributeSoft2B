@@ -79,18 +79,25 @@ DATA:{4}
         }
         public static Queue<Update> updateQueue = new Queue<Update>();
         [HttpPost]
-        public async Task<ActionResult> Post(Update update)
+        public async Task<ActionResult> Telegram(Update update)
         {
 
             var req = Request.InputStream;
+
             req.Seek(0, SeekOrigin.Begin);
             string json = new StreamReader(req).ReadToEnd();
-            logger.DebugFormat($"接收到的消息:{json}");
+            logger.Debug($"接收到的消息:{json}");
             var updates = JsonConvert.DeserializeObject<Update>(json);
-            //updateQueue.Enqueue(updates);//请求加入队列，然后循环回复，防止并发
-            //foreach (var item in updateQueue)
-            //{
             var message = updates.Message;
+
+            logger.Debug($"消息发送时间：{message.Date.ToString()}");
+            logger.Debug($"当前时间：{DateTime.Now.ToString()}");
+            //只处理30分钟内的消息
+            if (message.Date.AddMinutes(30) < DateTime.Now)
+            {
+                logger.Debug($"消息{message.MessageId}已过期！~");
+                return new HttpStatusCodeResult(200, "已处理");
+            }
             string url = string.Empty;
             if (message.Chat.Id == -1001221163930)
             {
@@ -100,13 +107,45 @@ DATA:{4}
             {
                 url = $"https://www.soft2b.com/telegram/Verification?verificationCode=";
             }
-            //if (message.Type == MessageType.TextMessage && message.From.Username.Contains("bot") &&
-            //    !message.From.Username.Contains("soft2b"))
-            //{
-            //    await Bot.Api.DeleteMessageAsync(message.Chat.Id, message.MessageId);
-            //}
-            if (message.Type == MessageType.TextMessage && message.Text.Contains("https://") &&
+
+            if (message.Type == MessageType.TextMessage && message.Text.Contains("http") &&
                 !message.Text.Contains("soft2b"))
+            {
+                var deleteMessageResult = await Bot.Api.DeleteMessageAsync(message.Chat.Id, message.MessageId);
+                if (!deleteMessageResult)
+                {
+                    logger.Debug($"消息{message.MessageId}不存在，删除失败！~");
+                    return new HttpStatusCodeResult(200, "删除失败");
+                }
+                logger.Debug($"消息{message.MessageId}删除成功！~");
+                return new HttpStatusCodeResult(200, "删除成功");
+            }
+            if (message.Type == MessageType.TextMessage && message.Text.Contains("www") &&
+                !message.Text.Contains("soft2b"))
+            {
+
+                var deleteMessageResult = await Bot.Api.DeleteMessageAsync(message.Chat.Id, message.MessageId);
+                if (!deleteMessageResult)
+                {
+                    logger.Debug($"消息{message.MessageId}不存在，删除失败！~");
+                    return new HttpStatusCodeResult(200, "删除失败");
+                }
+                logger.Debug($"消息{message.MessageId}删除成功！~");
+                return new HttpStatusCodeResult(200, "删除成功");
+            }
+            if (message.Type == MessageType.TextMessage && message.Text.Contains("t.me") &&
+                !message.Text.Contains("soft2b"))
+            {
+                var deleteMessageResult = await Bot.Api.KickChatMemberAsync(message.Chat.Id, message.From.Id);
+                if (!deleteMessageResult)
+                {
+                    logger.Debug($"消息{message.MessageId}不存在，踢出失败！~");
+                    return new HttpStatusCodeResult(200, "踢出失败");
+                }
+                logger.Debug($"消息{message.MessageId}踢出成功！~");
+                return new HttpStatusCodeResult(200, "踢出成功");
+            }
+            if (message.Type == MessageType.PhotoMessage)
             {
                 await Bot.Api.DeleteMessageAsync(message.Chat.Id, message.MessageId);
             }
@@ -133,9 +172,8 @@ DATA:{4}
 
                 }
             }
-            //}
-
-            return Json(new { result = true }, JsonRequestBehavior.AllowGet);
+            logger.Debug($"消息{message.MessageId}处理完毕！~");
+            return new HttpStatusCodeResult(200, "已处理");
         }
         public ActionResult Logout()
         {
