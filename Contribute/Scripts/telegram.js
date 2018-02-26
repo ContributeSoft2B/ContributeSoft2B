@@ -56,6 +56,7 @@
             data: { parentId: parId, ethAddress: eAddr },
             success: function (data) {
                 $('.pop-tip').show();
+                return false;
                 if (data.success == false) {
                     //$('.pop-tip p').html(onEn ?"<strong>The address has been registered</strong>":"<strong>该地址已注册</strong>将为您查询该地址相关信息");
                 } else {
@@ -64,7 +65,6 @@
                 setTimeout(function () {
                     if (pageLang == "제출") {
                         location.href = "../Telegram/DetailKP?code=" + data.VerificationCode;
-                        return false;
                     }
                     if (onEn) {
                         location.href = "../Telegram/DetailEn?code=" + data.VerificationCode;
