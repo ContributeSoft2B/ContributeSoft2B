@@ -55,7 +55,7 @@
             type: 'post',
             data: { parentId: parId, ethAddress: eAddr },
             success: function (data) {
-                $('.pop-tip').show();
+                $('.pop-tip').show().find('.tip-txt').html(onEn ? "The STB's first airdrop has ended and the rewards it received will be distributed to your wallet on Beijing time (GMT + 8) on Friday. You may still submit the wallet address without any rewards. Please pay attention to STB official WeChat public platform for the latest events." : "STB首次空投活动已结束，已获得的奖励将在北京时间（GMT+8）周五发放到您的钱包，您仍可提交钱包地址，但不会收到任何奖励。请关注STB官方微信公众平台，了解最新活动。");
                 return false;
                 if (data.success == false) {
                     //$('.pop-tip p').html(onEn ?"<strong>The address has been registered</strong>":"<strong>该地址已注册</strong>将为您查询该地址相关信息");
