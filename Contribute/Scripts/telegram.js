@@ -57,7 +57,6 @@
             success: function (data) {
                 $('.pop-tip').show();
                 return false;
-
                 if (data.success == false) {
                     //$('.pop-tip p').html(onEn ?"<strong>The address has been registered</strong>":"<strong>该地址已注册</strong>将为您查询该地址相关信息");
                 } else {
@@ -76,7 +75,7 @@
             },
             error: function () {
                 console.log('失败');
-                $('.pop-tip').show();
+                $('.pop-tip').show().find('p').text("failed!");
                 setTimeout(function () {
                     $('.pop-tip').hide();
                 }, 2000);
