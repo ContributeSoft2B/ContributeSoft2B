@@ -107,7 +107,7 @@ DATA:{4}
             {
                 url = $"https://www.soft2b.com/telegram/Verification?verificationCode=";
             }
-            if (message.From.Username== "liuhao_blockchain"|| message.From.FirstName.Contains("STB") )
+            if (message.From.Username == "liuhao_blockchain" || message.From.FirstName.Contains("STB") || message.From.Id == 496472712)
             {
                 logger.Debug($"管理员消息{message.MessageId}处理完毕！~");
                 return new HttpStatusCodeResult(200, "已处理");
