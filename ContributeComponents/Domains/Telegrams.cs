@@ -32,6 +32,15 @@ namespace ContributeComponents.Domains
         /// 绑定时间
         /// </summary>
         public DateTime? BindTime { get; set; }
+
+        /// <summary>
+        /// 邀请总人数
+        /// </summary>
+        public int InvitedTotalCount { get; set; }
+        /// <summary>
+        /// 币种名称
+        /// </summary>
+        public string ChainName { get; set; }
         /// <summary>
         /// 来自于国家
         /// </summary>

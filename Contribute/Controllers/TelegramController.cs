@@ -85,15 +85,22 @@ namespace Contribute.Controllers
             var data = db.Telegrams.FirstOrDefault(t => t.VerificationCode == verificationCode.Trim());
             if (data == null)
             {
-                return Json(new { success = false, msg = $"验证码：{verificationCode}无效，可能的原因如下：\n 1.错误的验证码 \n 2.该验证码好像已经被别人用过 \n 3.您跑错场了" }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = false, msg = $"验证码：{verificationCode}无效，可能的原因如下：\n 1.错误的验证码 \n 2.该验证码好像已经被别人用过 \n 3.您跑错场了 \n Verification Code：{verificationCode}  invalid，The possible reasons are as follows：\n 1.False verification code \n 2.The verifying code seems to have been used by others \n 3.You run the wrong field" }, JsonRequestBehavior.AllowGet);
             }
             if (data.BindTime.HasValue)
             {
-                return Json(new { success = false, msg = $"验证码：{verificationCode}已验证，不可重复验证" }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = false, msg = $"验证码：{verificationCode}已验证，不可重复验证 \n Verification Code：{verificationCode}Verified，Non repeatable validation" }, JsonRequestBehavior.AllowGet);
             }
             data.BindTime = DateTime.UtcNow;
+
+            if (data.ParentId != 0)
+            {
+                var parent = db.Telegrams.FirstOrDefault(t => t.Id == data.ParentId);
+                if (parent != null) parent.InvitedTotalCount++;
+            }
+            data.ChainName = "DCA";
             db.SaveChanges();
-            return Json(new { success = true, msg = $"收到验证码:{verificationCode},恭喜你验证成功，赶快把邀请链接分享给好友，每成功推荐一个好友入群，即可获得2个STB!", data.InviteUrl }, JsonRequestBehavior.AllowGet);
+            return Json(new { success = true, msg = $"收到验证码:{verificationCode},恭喜你验证成功，赶快把邀请链接分享给好友，每成功推荐一个好友入群，即可获得2个DCA! \n Receive verification code:{verificationCode},Verify success, quickly share the invite link to friends, each successful recommendation during the event a group of friends, you can get 2 DCA!", data.InviteUrl }, JsonRequestBehavior.AllowGet);
         }
         /// <summary>
         /// 验证码是否存在，如果存在，和ETH地址绑定（韩国)
