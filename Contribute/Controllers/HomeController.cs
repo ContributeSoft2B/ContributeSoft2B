@@ -87,10 +87,10 @@ DATA:{4}
         }
 
         [HttpPost]
-        public async Task<ActionResult>  payload()
+        public async Task<ActionResult> payload()
         {
 
-           
+
             var req = Request.InputStream;
 
             req.Seek(0, SeekOrigin.Begin);
@@ -98,13 +98,13 @@ DATA:{4}
             logger.Debug($"来自GITHUB消息：{json}");
             JavaScriptSerializer js = new JavaScriptSerializer();
             dynamic modelDy = js.Deserialize<dynamic>(json); //反序列化
-            //string messageDy = string.Format("动态的反序列化,ID={0},Name={1},Age={2},Sex={3}",
-                //modelDy["ID"], modelDy["Name"], modelDy["Age"], modelDy["Sex"]);//这里要使用索引取值，不能使用对象.属性
-            //var updates = JsonConvert.DeserializeObject<Update>(json);
-            //var message = updates.ChannelPost;
-            await Bot.Api.SendTextMessageAsync(-1001154091660,$"[{modelDy["sender"]["login"]}]提交了代码");
-            
-            
+                                                             //string messageDy = string.Format("动态的反序列化,ID={0},Name={1},Age={2},Sex={3}",
+                                                             //modelDy["ID"], modelDy["Name"], modelDy["Age"], modelDy["Sex"]);//这里要使用索引取值，不能使用对象.属性
+                                                             //var updates = JsonConvert.DeserializeObject<Update>(json);
+                                                             //var message = updates.ChannelPost;
+            await Bot.Api.SendTextMessageAsync(-1001154091660, $"[{modelDy["sender"]["login"]}]提交了代码");
+
+
             logger.Debug($"接收到的消息:{json}");
             return Content("OK");
         }
@@ -118,7 +118,6 @@ DATA:{4}
         public async Task<ActionResult> Telegram(Update update)
         {
 
-            //return new HttpStatusCodeResult(200, "已处理");
             var req = Request.InputStream;
 
             req.Seek(0, SeekOrigin.Begin);
@@ -126,7 +125,7 @@ DATA:{4}
             logger.Debug($"接收到的消息:{json}");
             var updates = JsonConvert.DeserializeObject<Update>(json);
             var message = updates.Message;
-            if (message.From.Id== 214775315)
+            if (message.From.Id == 214775315)
             {
                 return new HttpStatusCodeResult(200, "已处理");
             }
@@ -147,7 +146,9 @@ DATA:{4}
             {
                 url = $"https://www.soft2b.com/telegram/Verification?verificationCode=";
             }
-            if (message.From.Username == "liuhao_blockchain" || message.From.FirstName.Contains("STB") || message.From.Id == 496472712)
+
+            if (message.From.Username == "liuhao_blockchain" || message.From.FirstName.Contains("STB") ||
+                message.From.Id == 496472712)
             {
                 logger.Debug($"管理员消息{message.MessageId}处理完毕！~");
                 return new HttpStatusCodeResult(200, "已处理");
@@ -155,27 +156,44 @@ DATA:{4}
             if (message.Type == MessageType.TextMessage && message.Text.Contains("http") &&
                 !message.Text.Contains("soft2b"))
             {
-                var deleteMessageResult = await Bot.Api.DeleteMessageAsync(message.Chat.Id, message.MessageId);
-                if (!deleteMessageResult)
+                try
                 {
-                    logger.Debug($"消息{message.MessageId}不存在，删除失败！~");
-                    return new HttpStatusCodeResult(200, "删除失败");
+                    var deleteMessageResult = await Bot.Api.DeleteMessageAsync(message.Chat.Id, message.MessageId);
+                    if (!deleteMessageResult)
+                    {
+                        logger.Debug($"消息{message.MessageId}不存在，删除失败！~");
+                        return new HttpStatusCodeResult(200, "删除失败");
+                    }
+                    logger.Debug($"消息{message.MessageId}删除成功！~");
+                    return new HttpStatusCodeResult(200, "删除成功");
                 }
-                logger.Debug($"消息{message.MessageId}删除成功！~");
-                return new HttpStatusCodeResult(200, "删除成功");
+                catch (Exception e)
+                {
+                    logger.Debug($"{message.MessageId}消息删除失败！~");
+                    return new HttpStatusCodeResult(200, "消息删除失败");
+                }
+
             }
             if (message.Type == MessageType.TextMessage && message.Text.Contains("www") &&
                 !message.Text.Contains("soft2b"))
             {
-
-                var deleteMessageResult = await Bot.Api.DeleteMessageAsync(message.Chat.Id, message.MessageId);
-                if (!deleteMessageResult)
+                try
                 {
-                    logger.Debug($"消息{message.MessageId}不存在，删除失败！~");
-                    return new HttpStatusCodeResult(200, "删除失败");
+                    var deleteMessageResult = await Bot.Api.DeleteMessageAsync(message.Chat.Id, message.MessageId);
+                    if (!deleteMessageResult)
+                    {
+                        logger.Debug($"消息{message.MessageId}不存在，删除失败！~");
+                        return new HttpStatusCodeResult(200, "删除失败");
+                    }
+                    logger.Debug($"消息{message.MessageId}删除成功！~");
+                    return new HttpStatusCodeResult(200, "删除成功");
                 }
-                logger.Debug($"消息{message.MessageId}删除成功！~");
-                return new HttpStatusCodeResult(200, "删除成功");
+                catch (Exception e)
+                {
+                    logger.Debug($"{message.MessageId}消息删除失败！~");
+                    return new HttpStatusCodeResult(200, "消息删除失败");
+                }
+
             }
             if (message.Type == MessageType.TextMessage && message.Text.Contains("t.me") &&
                 !message.Text.Contains("soft2b"))
@@ -189,6 +207,7 @@ DATA:{4}
                 logger.Debug($"消息{message.MessageId}踢出成功！~");
                 return new HttpStatusCodeResult(200, "踢出成功");
             }
+
             if (message.Type == MessageType.PhotoMessage)
             {
                 //await Bot.Api.DeleteMessageAsync(message.Chat.Id, message.MessageId);
@@ -203,29 +222,44 @@ DATA:{4}
             }
             if (message.Type == MessageType.TextMessage && message.Text.StartsWith("/code"))
             {
-                url = $"{url}{message.Text}";
-                // Echo each Message
-                using (WebClient client = new WebClient())
+                try
                 {
-                    client.Encoding = Encoding.UTF8;
-                    var resultJson = client.DownloadString(url);
-                    var result = new { Success = false, Msg = string.Empty, InviteUrl = string.Empty };
-                    result = JsonConvert.DeserializeAnonymousType(resultJson, result);
-                    if (result.Success == true)
+                    url = $"{url}{message.Text}";
+                    // Echo each Message
+                    using (WebClient client = new WebClient())
                     {
-                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg, ParseMode.Default, false,
-                            false, message.MessageId);
-                    }
-                    else
-                    {
-                        await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg, ParseMode.Default, false,
-                            false, message.MessageId);
-                    }
+                        client.Encoding = Encoding.UTF8;
+                        var resultJson = client.DownloadString(url);
+                        var result = new { Success = false, Msg = string.Empty, InviteUrl = string.Empty };
+                        result = JsonConvert.DeserializeAnonymousType(resultJson, result);
+                        if (result.Success == true)
+                        {
+                            await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg, ParseMode.Default, false,
+                                false, message.MessageId);
+                        }
+                        else
+                        {
+                            await Bot.Api.SendTextMessageAsync(message.Chat.Id, result.Msg, ParseMode.Default, false,
+                                false, message.MessageId);
+                        }
+                        logger.Debug($"/code验证消息{message.MessageId}处理完毕！~");
+                        return new HttpStatusCodeResult(200, "已处理");
 
+                    }
                 }
+                catch (Exception e)
+                {
+                    logger.Debug($"/code验证消息处理异常！~{e.Message}");
+                    return new HttpStatusCodeResult(200, "已处理");
+                }
+
+
             }
             logger.Debug($"消息{message.MessageId}处理完毕！~");
             return new HttpStatusCodeResult(200, "已处理");
+
+
+
         }
         public ActionResult Logout()
         {
